@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ACIMLib_iOS'
-  s.version          = '2'
+  s.version          = '3'
   s.summary          = '...'
   s.description  = <<-DESC
                         ACIMLib test
@@ -16,6 +16,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
 
   s.ios.vendored_frameworks = 'ACIMLib.xcframework'
+
+  s.dependency 'AliyunOSSiOS'
 
 
 end
