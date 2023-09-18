@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ACIMLib_iOS'
-  s.version          = '3'
+  s.version          = '4'
   s.summary          = '...'
   s.description  = <<-DESC
                         ACIMLib test
