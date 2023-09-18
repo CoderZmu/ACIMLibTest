@@ -1,0 +1,141 @@
+
+/**
+ * 定义 共用structure
+ */
+
+syntax = "proto3"; //须显式声明为proto3 否则默认为proto2
+
+option java_package = "org.telegram.sgnet";
+option java_outer_classname = "SGRpcStructure";
+
+// 响应基类
+message ACPBBaseResp {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+
+//AES KEY and IV
+message ACPBAesKeyAndIV {
+    string aesKey = 1; //aes CBC Key
+    string aesIV = 2; //aes CBC IV
+}
+
+//获取系统的时间(毫秒数)
+message ACPBSystemCurrentTimeMillisReq {
+	//SystemCurrentTimeMillisReqCmdId  = 0x10001006
+}
+
+message ACPBSystemCurrentTimeMillisResp {
+	//SystemCurrentTimeMillisRespCmdId = 0x10008006;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+	int64 currentTimeMillis = 3; //服务器端当前的时间(毫秒数)
+}
+
+
+
+
+//会话消息
+message ACPBDialogMessage {
+	int64 msgId = 1; //消息在服务器端分配的id
+	int64 localId = 2; //app端分配的消息id 仅对发件人有意义，对收件人来说该值为0
+	int32 msgStatus = 3; //msg状态（显示回执等需要）
+	int64 srcId = 4; //消息发件人uid
+	int64 destId = 5; //消息收件人uid
+	bool isOut = 6; //true表示发送出去的消息，false表示接收进来的消息
+	int32 senderCategory = 7; //发件人类型 1为系统消息 8自己 9聊天伙伴
+	int32 msgCategory = 8; //消息类别 1:直接发送 2:reply 3:forward
+	string msgPreContent = 9; //消息的前置内容 (如果没有多媒体内容，preContent传空值，统一使用postContent)
+	string msgPostContent = 10; //消息的后置内容 (如果没有多媒体内容，请使用这个字段)
+	bool mediaFlag = 11; //是否有多媒体内容
+	int32 mediaConstructor = 12; //消息中包涵的多媒体类型 取值为XLMediaObject其相应的constructor
+    string mediaAttribute = 13; //多媒体属性的JSON格式（废弃）
+	int64 msgSendTime = 14; //消息发送的时间
+	bool burnAfterReadingFlag = 15; // 该消息是否属于"阅后即焚"
+	bool atFlag = 16; //单聊时永远为false 群聊时如为true则表示该消息在at我
+	bool replyFlag = 17; //该消息是否在回复我
+	bool referenceFlag = 18; //是否有关联消息(reply or foward)
+	int64 msgIdReferenced = 19; //关联消息的id
+	bool uploadFlag = 20;
+	int64 burnAfterReadingTime=21; //当burnAfterReadingFlag为true的时候才有意义,阅后即焚时间
+    bool sharingGroupFlag=22;//是否是共享群消息
+	int64 seqno=23;//消息序号
+    string extra = 24; // 附加信息
+    bytes msgContent = 25; //多媒体属性的二进制格式
+    string objectName = 26;
+}
+
+//被引用的会话消息，用于reply/forward场景，和DialogMessage区别是：
+//(a) 添加一部分展示需要的信息(比如发件人收件人的名字)
+//(b) 去除一部分没必要的信息(localId/msgStatus/atFlag/replyFlag... 及这个消息本身引用的信息）
+message ACPBReferenceDialogMessage {
+	int64 msgId = 1; //消息在服务器端分配的id
+	int64 srcId = 2; //消息发件人uid
+	string srcName = 3; //消息发件人名字
+	int64 destId = 4; //消息收件人uid
+	string destName = 5; //消息收件人名字
+	string msgPreContent = 6; //消息的前置内容 (如果没有多媒体内容，preContent传空值，统一使用postContent)
+	string msgPostContent = 7; //消息的后置内容 (如果没有多媒体内容，请使用这个字段)
+	bool mediaFlag = 8; // 是否有多媒体内容
+	int32 mediaConstructor = 9; //消息中包涵的多媒体类型 取值为XLMediaObject其相应的constructor
+	string mediaAttribute = 10; //多媒体属性的JSON格式
+	int64 msgSendTime = 11; //消息发送的时间
+}
+
+//简要的会话消息，主要做消息GCM推送时用
+message ACPBBriefDialogMessage {
+	int64 srcId = 1; //消息发件人id
+	string srcName = 2; //消息发件人名字
+	bool groupFlag = 3; //是不是群消息
+	int64 groupId = 4; //如是群消息，对应的groupId
+	string groupTitle = 5; //群名字
+	int64 msgSendTime = 6; //消息发送的时间
+	bool atFlag = 7; //如果是群消息，该消息是否在at收件人
+}
+
+
+/**
+ * 会话详情 (app进入会话列表时会拉取这个对象)
+ * 几个术语约定: offset: (a) 在req中，表示app端保存的消息偏移量 (b) 在resp中，表示服务器端返回的新消息中，最新一条消息的偏移量
+ * seqno: 服务器端最新消息序号;  groupId: 上下文明确为群聊的情况下，使用groupId更清晰
+ */
+message ACPBFullDialog {
+	string destId = 1; //目标id: 单聊时是对方uid, 群聊时是groupId, 需要根据groupFlag来判断
+	string dialogTitle = 2; //单聊时是对方名称, 群聊时是groupTitle
+	string smallAvatarUrl = 3; //头像缩略图
+	string backgroundImage = 4; //背景图
+	bool stickyFlag = 5; //是否置顶
+	bool muteFlag = 6; //是否免打扰
+	bool blockFlag = 7; //是否拉黑
+	bool burnAfterReadingFlag = 8; // 是否开启阅后即焚
+	bool takeScreenshotFlag = 9; //是否开启截屏通知
+	bool groupFlag = 10; //是否群聊
+	int32 totalMemberNumber = 11; //总人数
+	repeated string groupMemberSmallAvatarUrl = 12; //群成员的头像url列表，严格按照成员在群里面的顺序，返回前9个群成员的头像连接
+	int64 burnAfterReadingTime=13; //当burnAfterReadingFlag为true的时候才有意义,阅后即焚时间
+}
+
+
+/**
+ * 会话概要 (比如: 突然收到新会话时 进行拉取，比如新建的群)
+ */
+message ACPBBriefDialog {
+	string destId = 1; //目标id: 单聊时是对方uid, 群聊时是groupId, 需要根据groupFlag来判断
+	string dialogTitle = 2; //单聊时是对方名称, 群聊时是groupTitle
+	string smallAvatarUrl = 3; //头像缩略图
+	string backgroundImage = 4; //背景图
+	bool stickyFlag = 5; //是否置顶
+	bool muteFlag = 6; //是否免打扰
+	bool blockFlag = 7; //是否拉黑
+	bool burnAfterReadingFlag = 8; // 是否开启阅后即焚
+	bool takeScreenshotFlag = 9; //是否开启截屏通知
+	bool groupFlag = 10; //是否群聊
+	int32 totalMemberNumber = 11; //总人数
+	repeated string groupMemberSmallAvatarUrl = 12; //群成员的头像url列表，严格按照成员在群里面的顺序，返回前9个群成员的头像连接
+	int64 burnAfterReadingTime=13; //当burnAfterReadingFlag为true的时候才有意义,阅后即焚时间
+	string dialogMenuContent=14; // 用于公众号菜单项
+    int32 pushNotificationLevel = 15; // 免干扰级别
+}
+
+

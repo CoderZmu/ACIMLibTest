@@ -1,0 +1,41 @@
+/*
+ * 报文结构: STX|PADDING|LEN|HEADER|BODY|ETX
+ * 注意事项:
+ * - req 和 resp的header不一样
+ *   (a) REQ 去掉CRC, 新增destId:
+ *       cmdId | uid | messageSeq | deviceId | sessionId | protocolVersion | destId
+ *   (b) RESP 去掉CRC/sessionId:
+ *       cmdId | uid | messageSeq | deviceId | protocolVersion
+ */
+syntax = "proto3";    //须显式声明 否则默认为proto2
+
+option java_package = "org.telegram.sgnet";
+option java_outer_classname = "SGNetworkMessage";
+
+message ACPBNetworkRequest {
+  //int32 cmdId = 1;
+  int64 messageSeq = 2;
+  int64 deviceId = 3;
+  int64 sessionId = 4;
+  int64 uid = 5;
+  int32 protocolVersion = 6;
+  string destId = 7;
+  bytes body = 8;
+  string token = 9; 
+}
+
+
+message ACPBNetworkResponse {
+  //int32 cmdId = 1;
+  int64 messageSeq = 2;
+  int64 deviceId = 3;
+  //注: response header跳过sessionId
+  int64 uid = 5;
+  int32 protocolVersion = 6;
+  //int64 srcId = 7;  //是否需要发件人id? app端有需求时添加
+  bytes body = 8;
+  string token = 9;
+  int32 code = 10;
+}
+
+

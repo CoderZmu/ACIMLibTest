@@ -1,0 +1,107 @@
+
+/**
+ * 定义 用户类别 REQ/RESP
+ */
+
+syntax = "proto3";    //须显式声明为proto3 否则默认为proto2
+
+option java_package = "org.telegram.sgnet";
+option java_outer_classname = "SGUserRpc";
+
+
+// 封号主动推送
+message ACPBUserFrozenToLoginResp {
+    //UserFrozenToLoginRespCmdId = 0x30018FFF;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+    int32 frozenType = 3; // 封号级别
+    bool forceLogoutDeleteAllLocalMessagesFlag=4;//踢人下线删除 默认为不删除 false
+}
+
+
+//获取用户最后在线时间
+message ACPBGetUserOnlineTimeReq {
+	//GetUserOnlineTimeReqCmdId = 0x3011102D;
+	int64 destId = 1; //对方Id
+}
+
+message ACPBGetUserOnlineTimeResp {
+	//GetUserOnlineTimeRespCmdId = 0x3011802D;
+	int32 errorCode = 1;
+    string errorMessage = 2;
+    int32 onlinestatus = 3; //在线状态 1是在线;2是在30秒前在线就显示最后在线时间,离线;3对方关闭在线输入和在线状态开关;4表示未知
+    int64 lastOnlineTime = 4; //最后在线时间 onlinestatus为2的时候 用来显示
+}
+
+
+// push设置
+message ACPBUpdatePushConfigReq {
+    /*
+     config json string
+     
+     lan: 推送语言(zh_CN、en_US)
+     preview: 推送是否显示详情(0:否 1:是)
+     */
+    string content = 1;
+}
+
+message ACPBUpdatePushConfigResp {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+// 获取push设置
+message ACPBGetPushConfigResp {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+    string content = 3;
+}
+
+
+// 把联系人加入或者取消黑名单
+message ACPBUpdateBlockContactsReq {
+ // UpdateBlockContactsReqCmdId= 0x40011004
+  repeated int64 destIds = 1; //联系人id
+  bool blockFlag = 2; //加入黑名单为true,取消为false
+}
+message ACPBUpdateBlockContactsResp {
+  // UpdateBlockContactsRespCmdId= 0x40011004
+  int32 errorCode = 1;
+  string errorMessage = 2;
+}
+
+//查询黑名单列表
+message ACPBGetBlocksReq {
+  // GetBlocksReqCmdId= 0x40021006
+  repeated int64 destId = 1; //空，则查询拉黑列表，非空，则查询对应的用户是否在拉黑列表，如果被拉黑，就返回该用户id
+}
+
+message ACPBGetBlocksResp {
+   // GetBlocksRespCmdId= 0x40028007
+  int32 errorCode = 1;
+  string errorMessage = 2;
+  repeated int64 destIds = 3; // 用户
+}
+
+
+//获取oss配置，声网key
+message ACPBGetSysConfigReq{
+  //0x40021007
+}
+
+
+message ACPBGetSysConfigResp{
+  //0x40018014
+  int32 errorCode = 1;
+  string errorMessage = 2;
+  // 配置项
+  // 声网： key="agora" value="声网key"
+  //oss :  key="alioss" value={ed":"endPoint","ak":"accessKey","as":"accessSecret","bk":"桶名"}
+  repeated ACPBSysConfigItem config = 3;
+}
+
+//user configuration item
+message ACPBSysConfigItem {
+    string key = 1; //configuration key
+    string value = 2; //configuration value
+}

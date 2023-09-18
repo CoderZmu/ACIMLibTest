@@ -1,0 +1,46 @@
+
+/**
+ * 定义 超级群类别 REQ/RESP
+ */
+
+syntax = "proto3";    //须显式声明为proto3 否则默认为proto2
+
+
+import "acpb.privatechat.proto";
+
+
+//服务器端主动推送超级群新消息  0x6002819c
+message ACPBSendSuperGroupMessageResp {
+    string dialogKey = 1;
+    ACPBDialogMessageList msg = 2; 
+}
+
+// 获取超级群离线消息请求 0x6002815c
+message ACPBGetSuperGroupNewMessageReq {
+    map<string, int64> dialogKeys = 1;
+    int64 offset = 2; //客户端持有的最新消息序号偏移量
+    map<string, int64> readOffsets = 3; // 读偏移
+}
+
+// 获取超级群离线消息响应  0x6002816c
+message ACPBGetSuperGroupNewMessageResp {
+	int32 errorCode = 1;
+	string errorMessage = 2;
+	map<string, ACPBDialogMessageList> msg = 3; // map<destId, DialogMessageList> 有新消息的会话对应的消息列表
+	map<string, bool> msgEnd = 4; // 表示会话有没有更多的消息
+    map<string, int32> unreadCounts = 5; // 会话未读数
+    map<string, int64> readOffsets = 6; // 会话最新读偏移
+}
+
+
+// 清除某个会话中的未读消息数请求（该会话在时间戳 timestamp 之前的消息将被置成已读。） 0x6002822c
+message ACPBClearSuperGroupUnreadStatusReq {
+    string dialogId = 1; // 会话id
+    int64 readOffset = 2; // 最新已读的偏移
+}
+
+// 清除某个会话中的未读消息数响应 0x6002823c
+message ACPBClearSuperGroupUnreadStatusResp {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}

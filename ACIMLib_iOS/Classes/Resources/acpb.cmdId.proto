@@ -1,0 +1,444 @@
+/**
+ * 定义所有的cmdId
+ * 0x1001 基础类别
+ * 0x3001 登陆协议
+ * 0x3011 用户协议
+ * 0x3002 红包协议
+ * 0x4001 通讯录协议
+ * 0x4002 用户配置信息协议
+ * 0x6001 privatechat消息协议
+ * 0x6002 groupchat消息协议
+ * 0x7001 monitor消息协议
+ *
+ * 注1: 未能分类的请求则放到基础协议中(比如心跳 检查版本请求等等)
+ * 注2: 迁移时已废弃的cmdId请以注释的方式写上(而req和resp可不迁移)
+ */
+syntax = "proto3";    //须显式声明为proto3 否则默认为proto2
+
+option java_package = "org.telegram.sgnet";
+option java_outer_classname = "SGCmd";
+
+enum ACPBCmdId {
+
+    Should_Never_Used_CmdId = 0; //protobuf3中要求第一个枚举值必须为0 仅为占位符
+
+    //////////// 基础协议 ////////////
+
+    HeartbeatReqCmdId  = 0x10001001;
+    HeartbeatRespCmdId = 0x10008001;
+    HandshakeReqCmdId  = 0x10001003;
+    HandshakeRespCmdId = 0x10008003;
+    ConfirmHandshakeReqCmdId  = 0x10001004;
+    ConfirmHandshakeRespCmdId = 0x10008004;
+    SessionKilledNotificationRespCmdId = 0x10008005;
+    SystemCurrentTimeMillisReqCmdId  = 0x10001006;
+    SystemCurrentTimeMillisRespCmdId = 0x10008006;
+    SignOutNotificationRespCmdId = 0x10008007;  //注:原值为0x10001007 现修正为0x10008007
+    CreateWebQrcodeReqCmdId  = 0x10001008;
+    CreateWebQrcodeRespCmdId = 0x10008008;
+    UpdateUserOnlineStatusReqCmdId=0x10001009;
+    UpdateUserOnlineStatusRespCmdId=0x10008009;
+
+
+    //////////// 登录协议 ////////////
+    CheckForNewVersionReqCmdId  = 0x10001002;
+    CheckForNewVersionRespCmdId = 0x10008002;
+
+    //AuthSendCodeReqCmdId  = 0x30011001;
+    //AuthSendCodeRespCmdId = 0x30018001;
+    //AuthSignUpReqCmdId  = 0x30011002;
+    //AuthSignUpRespCmdId = 0x30018002;
+    //AuthSignInReqCmdId  = 0x30011003;
+    //AuthSignInRespCmdId = 0x30018003;
+    //AuthLogOutReqCmdId  = 0x30011004; //已迁移至user模块
+    //AuthLogOutRespCmdId = 0x30018004; //已迁移至user模块
+    GetCountryListReqCmdId  = 0x30011005;
+    GetCountryListRespCmdId = 0x30018005;
+    //ForgetPasswdSendCodeReqCmdId  = 0x30011006;
+    //ForgetPasswdSendCodeRespCmdId = 0x30018006;
+    ValidatePasscodeWithSignOutStatusReqCmdId  = 0x30011007;
+    ValidatePasscodeWithSignOutStatusRespCmdId = 0x30018007;
+    OverwritePasswdByTokenWithSignOutStatusReqCmdId = 0x30011008;
+    OverwritePasswdByTokenWithSignOutStatusRespCmdId = 0x30018008;
+    //LoginSendCodeReqCmdId  = 0x30011009;
+    //LoginSendCodeRespCmdId = 0x30018009;
+    //LoginBySmsCodeReqCmdId  = 0x30011010;
+    //LoginBySmsCodeRespCmdId = 0x30018010;
+    SendCodeWithSignOutStatusReqCmdId = 0x3001100E;
+    SendCodeWithSignOutStatusRespCmdId = 0x3001800E;
+    //SendCodeWithSignInStatusReqCmdId  //已迁移在user模块
+    //SendCodeWithSignInStatusRespCmdId //已迁移在user模块
+    AuthSignIn2ReqCmdId  = 0x30011011;
+    AuthSignIn2RespCmdId = 0x30018011;
+    LoginBySmsCode2ReqCmdId  = 0x30011012;
+    LoginBySmsCode2RespCmdId = 0x30018012;
+    SendAppLogWithSignOutStatusReqCmdId = 0x30011013;
+    SendAppLogWithSignOutStatusRespCmdId = 0x30018013;
+    ValidateMobileWithForgetPasswordReqCmdId = 0x30011015;
+    ValidateMobileWithForgetPasswordRespCmdId = 0x30018015;
+	GetVerificationCodeToRecoverPasswordReqCmdId = 0x30011021;
+    GetVerificationCodeToRecoverPasswordRespCmdId = 0x30018021;
+    GetRecoverPasswordVerificationInfoReqCmdId = 0x30011022;
+    GetRecoverPasswordVerificationInfoRespCmdId = 0x30018022;
+    RecoverPasswordReqCmdId = 0x30011023;
+    RecoverPasswordRespCmdId = 0x30018023;
+
+    //////////// 用户协议 ////////////
+    UserFrozenToLoginRespCmdId = 0x30018FFF;
+    AuthLogOutReqCmdId  = 0x30011004; //从login模块迁移过来
+    AuthLogOutRespCmdId = 0x30018004; //从login模块迁移过来
+	UpdateUserNickNameReqCmdId = 0x30111004;
+	UpdateUserNickNameRespCmdId = 0x30118004;	
+	UpdateUserAvatarReqCmdId = 0x30111005;
+	UpdateUserAvatarRespCmdId = 0x30118005;
+	GetUserProfilesByUidsReqCmdId = 0x30111007;
+	GetUserProfilesByUidsRespCmdId = 0x30118007;
+	UpdateUserEmailReqCmdId = 0x3011100A;
+	UpdateUserEmailRespCmdId = 0x3011800A;
+	UpdateUserGenderReqCmdId = 0x3011100B;
+	UpdateUserGenderRespCmdId = 0x3011800B;
+	UpdateApnsTokenReqCmdId = 0x3011100D;
+	UpdateApnsTokenRespCmdId = 0x3011800D;
+	UpdateUserPasswordReqCmdId = 0x3011100E;
+	UpdateUserPasswordRespCmdId = 0x3011800E;
+	GetFindMeByPhoneNumberConfigReqCmdId = 0x30111010;
+	GetFindMeByPhoneNumberConfigRespCmdId = 0x30118010;
+	UpdateFindMeByPhoneNumberConfigReqCmdId = 0x30111011;
+	UpdateFindMeByPhoneNumberConfigRespCmdId = 0x30118011;
+	GetAlertConfigReqCmdId = 0x30111012;
+	GetAlertConfigRespCmdId = 0x30118012;
+	UpdateGlobalMuteConfigReqCmdId = 0x30111013;
+	UpdateGlobalMuteConfigRespCmdId = 0x30118013;
+	UpdateSoundAlertConfigReqCmdId = 0x30111014;
+	UpdateSoundAlertConfigRespCmdId = 0x30118014;
+	UpdateVibrationAlertConfigReqCmdId = 0x30111015;
+	UpdateVibrationAlertConfigRespCmdId = 0x30118015;
+	HelpFriendRecoverPasswordReqCmdId = 0x30111017;
+    HelpFriendRecoverPasswordRespCmdId = 0x30118017;
+    SendCodeWithSignInStatusReqCmdId = 0x3011101A;
+    SendCodeWithSignInStatusRespCmdId = 0x3011801A;
+    ValidatePasscodeWithSignInStatusReqCmdId = 0x3011101B;
+    ValidatePasscodeWithSignInStatusRespCmdId = 0x3011801B;
+    OverwritePasswdByPasscodeWithSignInStatusReqCmdId = 0x3011101C;
+    OverwritePasswdByPasscodeWithSignInStatusRespCmdId = 0x3011801C;
+    ResetPasscodeWithSignInStatusReqCmdId = 0x3011101D;
+    ResetPasscodeWithSignInStatusRespCmdId = 0x3011801D;
+	GetLostPasswordFriendListReqCmdId = 0x30111020;
+	GetLostPasswordFriendListRespCmdId = 0x30118020;
+	SearchUserReqCmdId = 0x30111021;
+	SearchUserRespCmdId = 0x30118021;
+	IsPasswdSetReqCmdId = 0x30111022;
+	IsPasswdSetRespCmdId = 0x30118022;
+    UpdateReadReceiptConfigReqCmdId = 0x30111023;
+    UpdateReadReceiptConfigRespCmdId = 0x30118023;
+	
+	GetReadReceiptConfigReqCmdId = 0x30111028;
+	GetReadReceiptConfigRespCmdId = 0x30118028;
+    UpdateAudioCallMuteConfigReqCmdId = 0x3011102A;
+    UpdateAudioCallMuteConfigRespCmdId = 0x3011802A;
+    UpdateOnlineStatusConfigReqCmdId = 0x3011102B;
+    UpdateOnlineStatusConfigRespCmdId = 0x3011802B;
+    UpdatePreviewFlagConfigReqCmdId = 0x3011102C;
+    UpdatePreviewFlagConfigRespCmdId = 0x3011802C;
+    GetUserOnlineTimeReqCmdId = 0x3011102D;
+    GetUserOnlineTimeRespCmdId = 0x3011802D;
+    GetPrivacyAndSecurityPageConfigReqCmdId = 0x3011102E;
+    GetPrivacyAndSecurityPageConfigRespCmdId = 0x3011802E;
+	IsRegisteredByPhoneNumReqCmdId = 0x30111032;
+	IsRegisteredByPhoneNumRespCmdId = 0x30118032;
+	UpdateUserPhoneNumReqCmdId=0x30111033;
+	UpdateUserPhoneNumRespCmdId=0x30118033;
+	UpdateForceLogoutDeleteAllLocalMessagesConfigReqCmdId=0x30111035;
+    UpdateForceLogoutDeleteAllLocalMessagesConfigRespCmdId=0x30118035;
+	UpdateRestrictionLoginByPasscodeConfigReqCmdId=0x30111037;
+	UpdateRestrictionLoginByPasscodeConfigRespCmdId=0x30118037;
+    UpdateAddMeByGroupFlagReqCmdId = 0x3011103A;
+    UpdateAddMeByGroupFlagRespCmdId = 0x3011803A;
+    UpdateAddMeByQrcodeFlagReqCmdId = 0x3011103B;
+    UpdateAddMeByQrcodeFlagRespCmdId = 0x3011803B;
+    UpdateAddMeByContactCardFlagReqCmdId = 0x3011103C;
+    UpdateAddMeByContactCardFlagRespCmdId = 0x3011803C;
+	UserHelpGetVerificationCodeReqCmdId = 0x30111040;
+    UserHelpGetVerificationCodeRespCmdId = 0x30118040;
+    UserHelpGetHelpingUserListReqCmdId = 0x30111041;
+    UserHelpGetHelpingUserListRespCmdId = 0x30118041;
+    UserHelpRecoverPasswordReqCmdId = 0x30111042;
+    UserHelpRecoverPasswordRespCmdId = 0x30118042;
+    
+    //语音呼叫开关配置
+    UpdatePushKitAudioCallConfigReqCmdId = 0x30111043;
+    UpdatePushKitAudioCallConfigRespCmdId = 0x30118043;
+  
+	
+    //////////// 用户配置信息协议 ////////////
+    AddUserConfigReqCmdId = 0x40021001;
+    AddUserConfigRespCmdId = 0x40028001;
+    GetUserConfigReqCmdId = 0x40021002;
+    GetUserConfigRespCmdId = 0x40028002;
+    GetGatewayIpListReqCmdId = 0x40021003;
+    GetGatewayIpListRespCmdId = 0x40028003;
+    
+    //app扫描web页面二维码
+	ScanWebQrcodeReqCmdId = 0x30111027;
+	ScanWebQrcodeRespCmdId = 0x30118027;
+	//推送到web的resp
+	ScanWebQrcodeToWebRespCmdId=0x30118025;
+	//app扫描点击确定按钮
+	ClickOKReqCmdId = 0x30111024;
+	ClickOKRespCmdId = 0x30118024;
+	//推送到web的resp
+	ClickOKToWebRespCmdId = 0x30118026;
+	//app强制web端退出登录的接口
+    AppForceWebLogoutReqCmdId = 0x3011102F;
+    AppForceWebLogoutRespCmdId = 0x3011802F;
+    GetWebLoginStatusReqCmdId = 0x30111029;
+    GetWebLoginStatusRespCmdId = 0x30118029;
+    AuthLogoutToWebRespCmdId = 0x30118030;
+    AppForceWebLogoutToWebRespCmdId = 0x30118031;
+
+    //////////// 通讯录协议 ////////////
+    ScanUserQrcodeReqCmdId= 0x3011100C;
+    ScanUserQrcodeRespCmdId= 0x3011800C;
+    DelContactsReqCmdId= 0x40011003;
+    DelContactsRespCmdId= 0x40018003;
+    BlockContactsReqCmdId= 0x40011004;
+    BlockContactsRespCmdId= 0x40018004;
+    GetBlocksReqCmdId= 0x40011006;
+    GetBlocksRespCmdId= 0x40018006;
+    AddFriendReqCmdId= 0x40011007;
+    AddFriendRespCmdId= 0x40018007;
+    UpdateContactAliasReqCmdId= 0x40011008;
+    UpdateContactAliasRespCmdId= 0x40018008;
+    SaveGroupChatToContactReqCmdId= 0x40011009;
+    SaveGroupChatToContactRespCmdId= 0x40018009;
+    DeleteGroupContactReqCmdId= 0x4001100A;
+    DeleteGroupContactRespCmdId= 0x4001800A;
+    GetGroupContactListReqCmdId= 0x4001100B;
+    GetGroupContactListRespCmdId= 0x4001800B;
+    GetSugramContactsReqCmdId= 0x40011010;
+    GetSugramContactsRespCmdId= 0x40018010;
+    ImportContactsReqCmdId= 0x40011012;
+    ImportContactsRespCmdId= 0x40018012;
+    UpdatePublicChatRobotInterestFlagReqCmdId= 0x40011013;
+    UpdatePublicChatRobotInterestFlagRespCmdId= 0x40018013;
+
+    //////////// 单聊协议 ////////////
+    NewMessageNotificationRespCmdId = 0x60018000;
+    NewMessagePushRespCmdId = 0x60018FFF;
+    StartTypingPrivateChatMessagePushRespCmdId = 0x60018FFE;
+    EndTypingPrivateChatMessagePushRespCmdId = 0x60018FFD;
+    SendPrivateChatMessageReqCmdId = 0x60011001;
+    SendPrivateChatMessageRespCmdId = 0x60018001;
+    ReplyPrivateChatMessageReqCmdId = 0x60011002;
+    ReplyPrivateChatMessageRespCmdId = 0x60018002;
+    ForwardMessageToPrivateChatReqCmdId=0x60011003;
+    ForwardMessageToPrivateChatRespCmdId=0x60018003;
+    DeletePrivateChatDialogReqCmdId = 0x60011004;
+    DeletePrivateChatDialogRespCmdId = 0x60018004;
+    CreatePrivateChatDialogReqCmdId=0x60011005;
+    CreatePrivateChatDialogRespCmdId=0x60018005;
+    GetPrivateChatDialogDetailReqCmdId = 0x60011006;
+    GetPrivateChatDialogDetailRespCmdId = 0x60018006;
+    
+    
+    GetPrivateChatHistoryMessageReqCmdId = 0x60011007;
+    GetPrivateChatHistoryMessageRespCmdId = 0x60018007;
+    GetDialogListReqCmdId = 0x6001101E;
+    GetDialogListRespCmdId = 0x6001801E;
+    GetNewMessageReqCmdId = 0x60011027;
+    GetNewMessageRespCmdId = 0x60018027;
+    UpdatePrivateChatDialogStickyConfigReqCmdId = 0x6001100A;
+    UpdatePrivateChatDialogStickyConfigRespCmdId = 0x6001800A;
+    UpdatePrivateChatDialogMuteConfigReqCmdId = 0x6001100B;
+    UpdatePrivateChatDialogMuteConfigRespCmdId = 0x6001800B;
+    UpdatePrivateChatDialogBlockConfigReqCmdId = 0x6001100C;
+    UpdatePrivateChatDialogBlockConfigRespCmdId = 0x6001800C;
+    DeletePrivateChatMessageReqCmdId = 0x6001100D;
+    DeletePrivateChatMessageRespCmdId = 0x6001800D;
+    DeletePrivateChatHistoryReqCmdId = 0x6001100E;
+    DeletePrivateChatHistoryRespCmdId = 0x6001800E;
+    GetBriefDialogListReqCmdId = 0x6001101F;
+    GetBriefDialogListRespCmdId = 0x6001801F;
+    EnterPrivateChatReqCmdId = 0x60011011;
+    EnterPrivateChatRespCmdId = 0x60018011;
+    LeavePrivateChatReqCmdId = 0x60011012;
+    LeavePrivateChatRespCmdId = 0x60018012;
+    TakePrivateChatScreenshotReqCmdId = 0x60011013;
+    TakePrivateChatScreenshotRespCmdId = 0x60018013;
+    UpdatePrivateChatDialogBurnAfterReadingConfigReqCmdId = 0x60011014;
+    UpdatePrivateChatDialogBurnAfterReadingConfigRespCmdId = 0x60018014;
+    GetDialogKeyReqCmdId = 0x60011015;
+    GetDialogKeyRespCmdId = 0x60018015;
+    StartPrivateAudioCallReqCmdId = 0x60011017;
+    StartPrivateAudioCallRespCmdId = 0x60018017;
+    AnswerPrivateAudioCallReqCmdId = 0x60011018;
+    AnswerPrivateAudioCallRespCmdId = 0x60018018;
+    RejectPrivateAudioCallReqCmdId = 0x60011019;
+    RejectPrivateAudioCallRespCmdId = 0x60018019;
+    CancelPrivateAudioCallReqCmdId = 0x6001101A;
+    CancelPrivateAudioCallRespCmdId = 0x6001801A;
+    EndPrivateAudioCallReqCmdId = 0x6001101B;
+    EndPrivateAudioCallRespCmdId = 0x6001801B;
+    TimeOutPrivateAudioCallReqCmdId = 0x6001101C;
+    TimeOutPrivateAudioCallRespCmdId = 0x6001801C;
+    UpdatePrivateChatDialogTakeScreenshotConfigReqCmdId = 0x6001101D;
+    UpdatePrivateChatDialogTakeScreenshotConfigRespCmdId = 0x6001801D;
+
+    SendChatRobotMenuMessageReqCmdId = 0x60011026;
+    SendChatRobotMenuMessageRespCmdId = 0x60018026;
+
+    GetChatRobotHistoryArticleReqCmdId = 0x60011028;
+    GetChatRobotHistoryArticleRespCmdId = 0x60018028;
+    //撤回
+    RecallPrivateChatMessageReqCmdId = 0x60011022;
+    RecallPrivateChatMessageRespCmdId = 0x60018022;
+    StartTypingPrivateChatReqCmdId = 0x60011020;
+    StartTypingPrivateChatRespCmdId = 0x60018020;
+    EndTypingPrivateChatReqCmdId = 0x60011021;
+    EndTypingPrivateChatRespCmdId = 0x60018021;
+    SendPrivateChatArrivalAckReqCmdId = 0x60011023;
+    SendPrivateChatArrivalAckRespCmdId = 0x60018023;
+    SendPrivateChatReadAckReqCmdId=0x60011024;
+    SendPrivateChatReadAckRespCmdId=0x60018024;
+    
+    //web端拉取消息
+    GetNewMessageFromWebReqCmdId = 0x60011025;
+    GetNewMessageFromWebRespCmdId = 0x60018025;
+  
+
+	//////////// 群聊协议 ////////////
+	StartTypingGroupChatMessagePushRespCmdId = 0x60028FFE;
+	EndTypingGroupChatMessagePushRespCmdId = 0x60028FFD;
+    CreateGroupChatDialogReqCmdId=0x60021005;
+    CreateGroupChatDialogRespCmdId=0x60028005;
+    DeleteGroupChatUserReqCmdId=0x60021012;
+    DeleteGroupChatUserRespCmdId=0x60028012;
+    
+    //AddGroupChatUserReqCmdId=0x60021013;
+    //AddGroupChatUserRespCmdId=0x60028013;
+    
+    AddGroupChatUserNewReqCmdId=0x60021023;
+    AddGroupChatUserNewRespCmdId=0x60028023;
+    
+    EditGroupTitleReqCmdId=0x6002100F;
+    EditGroupTitleRespCmdId=0x6002800F;
+    EditGroupNoticeReqCmdId=0x60021010;
+    EditGroupNoticeRespCmdId=0x60028010;
+    AddGroupChatAdminReqCmdId=0x60021029;
+    AddGroupChatAdminRespCmdId=0x60028029;
+    DeleteGroupChatAdminReqCmdId=0x6002102A;
+    DeleteGroupChatAdminRespCmdId=0x6002802A;
+    EditGroupAliasReqCmdId=0x60021011;
+    EditGroupAliasRespCmdId=0x60028011;
+    DeleteAndLeaveGroupChatDialogReqCmdId=0x60021015;
+    DeleteAndLeaveGroupChatDialogRespCmdId=0x60028015;
+    UpdateGroupChatDialogBurnAfterReadingConfigReqCmdId=0x60021018;
+    UpdateGroupChatDialogBurnAfterReadingConfigRespCmdId=0x60028018;
+    
+    //JoinGroupChatByQrcodeEntryReqCmdId=0x6002101A;
+    //JoinGroupChatByQrcodeEntryRespCmdId=0x6002801A;
+    
+    JoinGroupChatByQrcodeEntryNewReqCmdId=0x60021022;
+    JoinGroupChatByQrcodeEntryNewRespCmdId=0x60028022;
+    
+    //JoinGroupChatByInvitationLinkReqCmdId=0x6002101C;
+    //JoinGroupChatByInvitationLinkRespCmdId=0x6002801C;
+    
+    JoinGroupChatByInvitationLinkNewReqCmdId=0x60021024;
+    JoinGroupChatByInvitationLinkNewRespCmdId=0x60028024;
+    
+    DeleteGroupChatDialogReqCmdId=0x60021004;
+    DeleteGroupChatDialogRespCmdId=0x60028004;
+    UpdateGroupAuthFlagReqCmdId=0x6002101F;
+    UpdateGroupAuthFlagRespCmdId=0x6002801F;
+    GetGroupInvitationListReqCmdId=0x60021025;
+    GetGroupInvitationListRespCmdId=0x60028025;
+    AgreeJoinGroupChatReqCmdId=0x60021026;
+    AgreeJoinGroupChatRespCmdId=0x60028026;
+    UpdateGroupChatDialogTakeScreenshotConfigReqCmdId=0x60021027;
+    UpdateGroupChatDialogTakeScreenshotConfigRespCmdId=0x60028027;
+    
+    //VerifyGroupChatInvitationLinkNewReqCmdId=0x6002101B;
+    //VerifyGroupChatInvitationLinkNewRespCmdId=0x6002801B;
+    
+    VerifyGroupChatInvitationLinkNewReqCmdId=0x60021028;
+    VerifyGroupChatInvitationLinkNewRespCmdId=0x60028028;
+    
+    //ScanGroupQrcodeReqCmdId=0x60021019;
+   	//ScanGroupQrcodeRespCmdId=0x60028019;
+    
+    ScanGroupQrcodeNewReqCmdId=0x60021021;
+    ScanGroupQrcodeNewRespCmdId=0x60028021;
+    
+    SendGroupChatMessageReqCmdId= 0x60021001;
+    SendGroupChatMessageRespCmdId=0x60028001;
+    
+    ReplyGroupChatMessageReqCmdId=0x60021002;
+    ReplyGroupChatMessageRespCmdId=0x60028002;
+    ForwardMessageToGroupChatReqCmdId=0x60021003;
+    ForwardMessageToGroupChatRespCmdId=0x60028003;
+    
+    //GetGroupChatDialogDetailReqCmdId=0x60021006;
+    //GetGroupChatDialogDetailRespCmdId=0x60028006;
+    
+    GetGroupChatDialogDetailNewReqCmdId=0x6002101E;
+    GetGroupChatDialogDetailNewRespCmdId=0x6002801E;
+    
+    GetGroupChatDialogDetailNewAdminReqCmdId=0x6002102E;
+    GetGroupChatDialogDetailNewAdminRespCmdId=0x6002802E;
+    
+    GetGroupChatHistoryMessageReqCmdId = 0x60021007;
+    GetGroupChatHistoryMessageRespCmdId=0x60028007;
+    TakeGroupChatScreenshotReqCmdId=0x6002101D;
+    TakeGroupChatScreenshotRespCmdId=0x6002801D;
+    EnterGroupChatReqCmdId = 0x60021016;
+    EnterGroupChatRespCmdId = 0x60028016;
+    LeaveGroupChatReqCmdId=0x60021017;
+    LeaveGroupChatRespCmdId=0x60028017;
+    UpdateGroupChatDialogStickyConfigReqCmdId=0x6002100A;
+    UpdateGroupChatDialogStickyConfigRespCmdId=0x6002800A;
+    UpdateGroupChatDialogMuteConfigReqCmdId= 0x6002100B;
+    UpdateGroupChatDialogMuteConfigRespCmdId= 0x6002800B;
+    UpdateGroupChatDialogBlockConfigReqCmdId= 0x6002100C;
+    UpdateGroupChatDialogBlockConfigRespCmdId= 0x6002800C;
+    
+    DeleteGroupChatHistoryReqCmdId= 0x6002100E;
+    DeleteGroupChatHistoryRespCmdId= 0x6002800E;
+    
+    //删除群聊中的单条消息
+    DeleteGroupChatMessageReqCmdId = 0x6002100D;
+    DeleteGroupChatMessageRespCmdId = 0x6002800D;
+    
+ 	//群撤回消息
+ 	RecallGroupChatMessageReqCmdId = 0x6002102B;
+ 	RecallGroupChatMessageRespCmdId = 0x6002802B;
+    //群聊输入状态 回执
+ 	StartTypingGroupChatReqCmdId = 0x6002102C;
+ 	StartTypingGroupChatRespCmdId = 0x6002802C;
+ 	EndTypingGroupChatReqCmdId = 0x6002102D;
+    EndTypingGroupChatRespCmdId = 0x6002802D;
+    SendGroupChatArrivalAckReqCmdId = 0x60021030;
+    SendGroupChatArrivalAckRespCmdId = 0x60028030;
+    SendGroupChatReadAckReqCmdId = 0x60021031;
+    SendGroupChatReadAckRespCmdId = 0x60028031;
+
+    // 拉取群消息
+    GetNewSharingGroupMessageReqCmdId = 0x6002103B;
+    GetNewSharingGroupMessageRespCmdId = 0x6002803B;
+ 
+    //共享消息在分派的时候使用 内部使用 app端不使用
+    SharingGroupMessageToGroupIdReqCmdId=0x6002103E;
+    SharingGroupMessageToTargetUserIdsReqCmdId=0x6002103F;
+    SharingGroupNotificationToGroupIdReqCmdId=0x60021040;
+    SharingGroupNotificationToTargetUserIdsReqCmdId=0x60021041;
+    
+    //更新群消息有效期开关
+    UpdateGroupMessageLifetimeFlagReqCmdId=0x6002104C;
+    UpdateGroupMessageLifetimeFlagRespCmdId=0x6002804C;
+    
+
+    //////////// monitor消息协议 ////////////
+    //app上传错误日志接口
+    SendAppLogWithSignInStatusReqCmdId = 0x70011001;
+    SendAppLogWithSignInStatusRespCmdId = 0x70018001;
+}

@@ -1,0 +1,317 @@
+/**
+ * 定义 群聊类别 REQ/RESP
+ */
+
+syntax = "proto3";    //须显式声明为proto3 否则默认为proto2
+
+option java_package = "org.telegram.sgnet";
+option java_outer_classname = "SGGroupChatRpc";
+
+import "acpb.global.structure.proto";
+
+
+//群成员
+message ACPBGroupMember{
+		  int64 memberUid=1; // 成员的uid
+		  string memberName=2; // 成员的uid
+		  string memberAlias=3; // 成员自己设置的在该群的别名
+		  string memberSmallAvatarUrl=4; // 成员的头像
+		  int64 referenceUid=5; // 由谁拉入群
+		  int64 joinTime=6; // 加入时间
+		  bool admin=7;//是否为管理员
+}
+
+
+
+//发送消息 请求
+message ACPBSendGroupChatMessageReq{
+		//SendGroupChatMessageReqCmdId= 0x60021001;
+    string groupId = 1; // 群id
+
+    int64 localId = 2; // app端分配的消息id
+
+    string msgPreContent = 3; // 前置消息的内容 (如果没有多媒体内容，preContent传空值，)
+
+    string msgPostContent = 4; // 后置消息的内容 (如果没有多媒体内容，请使用这个字段)
+
+    bool mediaFlag = 5; // 是否有多媒体内容
+
+    int32 mediaConstructor = 6; // 消息中包涵的多媒体类型
+
+    // 取值为相应的SGMediaObject其constructor
+
+    string mediaAttribute = 7; // 多媒体属性的JSON格式
+
+    repeated int64 at = 8; // @用户列表
+
+    string extra = 9;
+
+    string assign = 10; //给指定用户发消息
+
+    bool atAll = 11; //是否at all
+
+    bytes msgContent = 12;
+
+    string pushContent = 13;
+
+    bool isBackEnd = 14; //是否是后端发起的，后端发起的，不判断用户是否在群里
+
+    bool isNotIncludeSender = 15; //消息发送者是否可在客户端接收该消息
+
+    string objectName = 16; //消息类型
+
+    bool save = 17; //是否需要保存到db
+    
+}
+//发送消息 回复 
+message ACPBSendGroupChatMessageResp{
+		//SendGroupChatMessageRespCmdId=0x60028001;
+		int32 errorCode = 1;
+      	string errorMessage=2;
+		int64 localId=3; // app端分配的消息id
+		int64 msgId=4; // 服务器端消息id
+		int64 msgSendTime=5; // 服务器端记录的消息发送时间
+        int64 seqno=6; // 游标
+}
+
+//群聊reply消息 请求
+message ACPBReplyGroupChatMessageReq{
+		//ReplyGroupChatMessageReqCmdId=0x60021002;
+		string groupId=1; // 群id
+		int64 localId=2; // app端分配的消息id
+		string msgPreContent=3; // 前置消息的内容 (如果没有多媒体内容，preContent传空值，)
+		string msgPostContent=4; // 后置消息的内容 (如果没有多媒体内容，请使用这个字段)
+		bool mediaFlag=5; // 是否有多媒体内容
+		int32 mediaConstructor=6; // 消息中包涵的多媒体类型
+										// 取值为相应的SGMediaObject其constructor
+		string mediaAttribute=7; // 多媒体属性的JSON格式
+		repeated int64 at = 8; // @用户列表
+
+		int64 msgIdReferenced=9; // 引用消息的id
+		int64 msgSrcIdReferenced=10; // 引用消息的发件人id
+		int64 msgDestIdReferenced=11; // 引用消息的收件人id
+		string msgPreContentReferenced=12; // 前置消息的内容
+												// (如果没有多媒体内容，preContent传空值，)
+		string msgPostContentReferenced=13; // 后置消息的内容 (如果没有多媒体内容，请使用这个字段)
+		bool mediaFlagReferenced=14; // 是否有多媒体内容
+		int32 mediaConstructorReferenced=15; // 消息中包涵的多媒体类型
+												// 取值为相应的SGMediaObject其constructor
+		string mediaAttributeReferenced=16; // 多媒体属性的JSON格式
+		int64 msgSendTimeReferenced=17; // 引用消息的发送时间
+}
+
+//群聊reply消息  回复
+message ACPBReplyGroupChatMessageResp{
+		//ReplyGroupChatMessageRespCmdId=0x60028002;
+		int32 errorCode = 1;
+      	string errorMessage=2;
+		int64 localId=3; // app端分配的消息id
+		int64 msgId=4; // 服务器端消息id
+		int64 msgSendTime=5; // 服务器端记录的发送时间戳
+}
+
+
+//获取群详情  请求
+message ACPBGetGroupChatDialogDetailNewReq{
+	//GetGroupChatDialogDetailNewReqCmdId=0x6002101E;
+	string groupId=1; // 群id
+} 
+ 
+ //获取群详情  回复
+message ACPBGetGroupChatDialogDetailNewResp{
+	//GetGroupChatDialogDetailNewRespCmdId=0x6002801E;
+		int32 errorCode = 1;
+      	string errorMessage=2;
+		string groupId=3; // 群id
+		string adminId=4; // 管理员id
+		bool isUntitled=5; // 该群是否有命名
+		string groupTitle=6; // 群名称
+		string announcementContent=7; // 群公告内容
+		int64 announcementPostTime=8; // 群公告更新时间
+		int64 announcementPostId=9; // 群公告修改人uid
+		string announcementPostUserSmallAvatarUrl=10; // 群公告修改人头像缩略图
+		string smallAvatarUrl=11; // 头像缩略图
+		string originalAvatarUrl=12; // 头像原图
+		string qrcodeString=13; // 二维码缩略图
+		bool stickyFlag=14; // 是否置顶
+		bool muteFlag=15; // 是否免打扰
+		bool blockFlag=16; // 是否拉黑
+		bool burnAfterReadingFlag=17; // 是否阅后即焚
+		bool groupAuthFlag=18; // 是否开启群认证
+		bool groupContactFlag=19; // 群是否保存到通讯录
+		int32 totalMemberNumber=20; // 群成员总共人数
+		//string memberInfo=21; // 群成员信息 List<GroupMember>对应的JSON串
+		repeated ACPBGroupMember groupMember = 21;//返回群成员list
+		bool takeScreenshotFlag=22; // 是否开启截屏通知
+		bool groupMessageLifetimeFlag=23;//群消息有效期开关 (true为开启 false为关闭)
+        int64 groupMessageLifetime=24;//群消息有效期 (单位 ms 默认为0永远不过期)
+        int64 burnAfterReadingTime=25; //当burnAfterReadingFlag为true的时候才有意义,阅后即焚时间
+}
+
+
+
+//删除历史消息 请求 
+message ACPBDeleteGroupChatHistoryReq{
+	//DeleteGroupChatHistoryReqCmdId=0x6002100E;
+	string groupId=1; // 群id
+}
+
+//删除历史消息 回复 
+message ACPBDeleteGroupChatHistoryResp{
+	//DeleteGroupChatHistoryRespCmdId=0x6002800E;
+	int32 errorCode =1;
+     string errorMessage=2;
+}
+
+//置顶设置 请求
+message ACPBUpdateGroupChatDialogStickyConfigReq{
+	//UpdateGroupChatDialogStickyConfigReqCmdId=0x6002100A;
+	string groupId=1; // 群id
+	bool stickyFlag=2; // 是否置顶
+}
+
+
+//置顶设置 回复
+message ACPBUpdateGroupChatDialogStickyConfigResp{
+	//UpdateGroupChatDialogStickyConfigRespCmdId=0x6002800A;
+	int32 errorCode = 1;
+    string errorMessage=2;
+}
+
+//静音设置  请求
+message ACPBUpdateGroupChatDialogMuteConfigReq{
+		//UpdateGroupChatDialogMuteConfigReqCmdId= 0x6002100B;
+		string groupId=1; // 群id
+		bool  muteFlag=2; // 是否静音
+}
+
+//静音设置 回复
+message ACPBUpdateGroupChatDialogMuteConfigResp{
+		//UpdateGroupChatDialogMuteConfigRespCmdId= 0x6002800B;
+		int32 errorCode = 1;
+   		string errorMessage=2;
+}
+
+//免打扰等级设置
+message ACPBUpdateGroupChatDialogNotificationLevelReq {
+    //0x60018035
+    repeated string destId = 1; //目标会话
+    int32 muteFlag = 2; //-1接收全部通知 0初始状态 2接收被@通知 4接收@全体成员通知 5不接收通知
+}
+message ACPBUpdateGroupChatDialogNotificationLevelResp {
+    //0x6001802B
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+//拉黑设置 请求
+message ACPBUpdateGroupChatDialogBlockConfigReq{
+		//UpdateGroupChatDialogBlockConfigReqCmdId= 0x6002100C;
+		string groupId=1; // 群id
+		bool blockFlag=2; // 是否拉黑
+}
+
+
+//拉黑设置 回复
+message ACPBUpdateGroupChatDialogBlockConfigResp{
+		//UpdateGroupChatDialogBlockConfigRespCmdId= 0x6002800C;
+		int32 errorCode = 1;
+   		string errorMessage=2;
+}
+
+//撤回消息 请求
+message ACPBRecallGroupChatMessageReq {
+   //RecallGroupChatMessageReqCmdId = 0x6002102B;
+    string groupId = 1; //目标会话
+    int64 msgId = 2; //待删除的消息id
+}
+message ACPBRecallGroupChatMessageResp {
+    //RecallGroupChatMessageRespCmdId = 0x6002802B;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+//群聊正在输入-开始
+message ACPBStartTypingGroupChatReq {
+    //StartTypingGroupChatReqCmdId = 0x6002102C;
+    string groupId = 1; //会话群id
+}
+
+message ACPBStartTypingGroupChatResp {
+    //StartTypingGroupChatRespCmdId = 0x6002802C;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+//群聊正在输入-结束
+message ACPBEndTypingGroupChatReq {
+    //EndTypingGroupChatReqCmdId = 0x6002102D;
+    string groupId = 1; //会话群id
+}
+
+message ACPBEndTypingGroupChatResp {
+    //EndTypingGroupChatRespCmdId = 0x6002802D;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+//封装群id 发消息者id 消息id列表
+message ACPBGroupChatMessage {
+    string groupId = 1;
+    int64 userId = 2; //谁发送的
+    repeated int64 msgId = 3;
+}
+
+//群聊送达消息回执
+message ACPBSendGroupChatArrivalAckReq {
+    //SendGroupChatArrivalAckReqCmdId = 0x60021030;
+    repeated ACPBGroupChatMessage groupChatMessage = 1; //拉取消息返回的群id+谁拉取的+消息id列表
+}
+message ACPBSendGroupChatArrivalAckResp {
+    //SendGroupChatArrivalAckRespCmdId = 0x60028030;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+//群聊已读消息回执
+message ACPBSendGroupChatReadAckReq {
+    //SendGroupChatReadAckReqCmdId = 0x60021031;
+    repeated ACPBGroupChatMessage groupChatMessage = 1; //拉取消息返回的群id+谁拉取的+消息id列表
+}
+message ACPBSendGroupChatReadAckResp {
+    //SendGroupChatReadAckRespCmdId = 0x60028031;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
+
+//获取群新消息  只是群消息 
+message ACPBGetNewSharingGroupMessageReq {
+    //GetNewSharingGroupMessageReqCmdId = 0x6002103B;
+    string groupId=1; // 群聊id
+    int64 offset = 2; //客户端持有的当前消息序号偏移量
+    int32 rows = 3; //取正值，表示分页请求
+}
+message ACPBGetNewSharingGroupMessageResp {
+    //GetNewSharingGroupMessageRespCmdId = 0x6002803B;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+    int64 seqno = 3; //服务器端最新的消息序号
+    repeated ACPBDialogMessage dialogMessage = 4; // 改群有新消息的会话对应的消息列表
+    map<string, ACPBReferenceDialogMessage> reference = 5; // map<msgIdReferenced, ReferenceDialogMessage> 引用的消息信息
+    int64 endOffset = 6; // 此次拉取消息的endOffset
+}
+
+//删除历史记录 请求
+message ACPBDeleteGroupChatDialogReq{
+	//DeleteGroupChatDialogReqCmdId=0x60021004;
+	string groupId=1; // 群聊id
+}
+
+//删除历史记录 回复
+message ACPBDeleteGroupChatDialogResp{
+		//DeleteGroupChatDialogRespCmdId=0x60028004;
+		int32 errorCode = 1;
+     	string errorMessage = 2;
+		string notification=3; // 操作后的提醒消息
+}
+

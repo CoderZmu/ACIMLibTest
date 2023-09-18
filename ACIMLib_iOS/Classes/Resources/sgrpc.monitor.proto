@@ -1,0 +1,25 @@
+
+/**
+ * REQ/RESP
+ */
+
+syntax = "proto3";    //须显式声明为proto3 否则默认为proto2
+
+option java_package = "org.telegram.sgnet";
+option java_outer_classname = "SGMonitorRpc";
+
+
+//app向服务器上传日志的接口(已登录状态下使用)
+message SendAppLogWithSignInStatusReq {
+    //SendAppLogWithSignInStatusReqCmdId = 0x70011001;
+	string code = 1; //编码
+	string message = 2; //内容
+    string buildVersion = 3; //版本号
+    int32 logType = 4;  //日志类型
+    string exceptionInfo = 5;   //异常信息
+}
+message SendAppLogWithSignInStatusResp {
+    //SendAppLogWithSignInStatusRespCmdId = 0x70018001;
+    int32 errorCode = 1;
+    string errorMessage = 2;
+}
