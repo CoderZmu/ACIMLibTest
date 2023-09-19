@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  \~chinese
  用户 ID
  */
-@property (nonatomic, assign) long userId;
+@property (nonatomic, assign) NSString *userId;
 
 /*!
  *  \~chinese
@@ -31,6 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
  用户头像的 URL
  */
 @property (nonatomic, copy) NSString *portraitUri;
+
+/*!
+ 用户备注
+ */
+@property (nonatomic, copy, nullable) NSString *alias;
 
 /**
  *  \~chinese
@@ -48,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param portrait    用户头像的 URL
  @return            用户信息对象
  */
-- (instancetype)initWithUserId:(long)userId name:(NSString *)username portrait:(NSString *)portrait;
+- (instancetype)initWithUserId:(NSString *)userId name:(NSString *)username portrait:(nullable NSString *)portrait;
 
 
 - (instancetype)initWithEncodeData:(nonnull NSDictionary *)data;

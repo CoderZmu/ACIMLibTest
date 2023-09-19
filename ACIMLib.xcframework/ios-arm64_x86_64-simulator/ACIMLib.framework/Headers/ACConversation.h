@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  \~english
  Conversation ID
  */
-@property (nonatomic, assign) long targetId;
+@property (nonatomic, copy) NSString *targetId;
 
 
 /// 超级群频道Id

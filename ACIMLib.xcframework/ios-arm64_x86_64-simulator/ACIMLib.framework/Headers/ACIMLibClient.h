@@ -338,7 +338,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    @remarks 会话
 
  */
-- (ACConversation *)getConversation:(ACConversationType)conversationType targetId:(long)targetId;
+- (ACConversation *)getConversation:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 
 /*!
@@ -355,7 +355,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    @remarks 会话
 
  */
-- (BOOL)removeConversation:(ACConversationType)conversationType targetId:(long)targetId;
+- (BOOL)removeConversation:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 /*!
  *  \~chinese
@@ -369,7 +369,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    @remarks 会话
 
  */
-- (BOOL)setConversationToTop:(ACConversationType)conversationType targetId:(long)targetId isTop:(BOOL)isTop;
+- (BOOL)setConversationToTop:(ACConversationType)conversationType targetId:(NSString *)targetId isTop:(BOOL)isTop;
 
 /*!
  *  \~chinese
@@ -396,7 +396,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  @remarks 会话
  */
-- (nullable NSString *)getTextMessageDraft:(ACConversationType)conversationType targetId:(long)targetId;
+- (nullable NSString *)getTextMessageDraft:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 /*!
  保存草稿信息（用户输入但未发送的暂存消息）
@@ -409,7 +409,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
  @remarks 会话
  */
 - (BOOL)saveTextMessageDraft:(ACConversationType)conversationType
-                    targetId:(long)targetId
+                    targetId:(NSString *)targetId
                      content:(NSString *)content;
 
 /*!
@@ -421,7 +421,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  @remarks 会话
  */
-- (BOOL)clearTextMessageDraft:(ACConversationType)conversationType targetId:(long)targetId;
+- (BOOL)clearTextMessageDraft:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 
 #pragma mark - Unread Count
@@ -448,7 +448,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    @remarks 会话
 
  */
-- (int)getUnreadCount:(ACConversationType)conversationType targetId:(long)targetId;
+- (int)getUnreadCount:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 /*!
  *  \~chinese
@@ -477,7 +477,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (BOOL)clearAllMessagesUnreadStatus:(ACConversationType)conversationType
-                            targetId:(long)targetId;
+                            targetId:(NSString *)targetId;
 
 /*!
  *  \~chinese
@@ -494,7 +494,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (BOOL)clearMessagesUnreadStatus:(ACConversationType)conversationType
-                         targetId:(long)targetId
+                         targetId:(NSString *)targetId
                              time:(long long)timestamp;
 
 
@@ -544,7 +544,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (ACMessage *)sendMessage:(ACConversationType)conversationType
-                  targetId:(long)targetId
+                  targetId:(NSString *)targetId
                    content:(ACMessageContent *)content
                 pushConfig:(nullable ACMessagePushConfig *)pushConfig
                 sendConfig:(nullable ACSendMessageConfig *)sendConfig
@@ -588,7 +588,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (ACMessage *)sendMediaMessage:(ACConversationType)conversationType
-                       targetId:(long)targetId
+                       targetId:(NSString *)targetId
                         content:(ACMessageContent *)content
                      pushConfig:(nullable ACMessagePushConfig *)pushConfig
                      sendConfig:(nullable ACSendMessageConfig *)sendConfig
@@ -683,7 +683,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (ACMessage *)sendDirectionalMessage:(ACConversationType)conversationType
-                             targetId:(long)targetId
+                             targetId:(NSString *)targetId
                          toUserIdList:(NSArray *)userIdList
                               content:(ACMessageContent *)content
                            pushConfig:(ACMessagePushConfig *)pushConfig
@@ -731,7 +731,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (ACMessage *)insertOutgoingMessage:(ACConversationType)conversationType
-                            targetId:(long)targetId
+                            targetId:(NSString *)targetId
                           sentStatus:(ACSentStatus)sentStatus
                              content:(ACMessageContent *)content
                             sentTime:(long long)sentTime;
@@ -785,7 +785,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (void)setConversationNotificationStatus:(ACConversationType)conversationType
-                                 targetId:(long)targetId
+                                 targetId:(NSString *)targetId
                                 isBlocked:(BOOL)isBlocked
                                   success:(void (^)(ACConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(ACErrorCode status))errorBlock;
@@ -803,7 +803,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (void)getConversationNotificationStatus:(ACConversationType)conversationType
-                                 targetId:(long)targetId
+                                 targetId:(NSString *)targetId
                                   success:(void (^)(ACConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(ACErrorCode status))errorBlock;
 
@@ -894,7 +894,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (NSArray *)getHistoryMessages:(ACConversationType)conversationType
-                       targetId:(long)targetId
+                       targetId:(NSString *)targetId
                      objectName:(NSString *)objectName
                   baseMessageId:(long)baseMessageId
                       isForward:(BOOL)isForward
@@ -928,7 +928,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (NSArray *)getHistoryMessages:(ACConversationType)conversationType
-                       targetId:(long)targetId
+                       targetId:(NSString *)targetId
                     objectNames:(NSArray *)objectNames
                        sentTime:(long long)sentTime
                       isForward:(BOOL)isForward
@@ -957,7 +957,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (void)clearHistoryMessages:(ACConversationType)conversationType
-                    targetId:(long)targetId
+                    targetId:(NSString *)targetId
                   recordTime:(long long)recordTime
                  clearRemote:(BOOL)clearRemote
                      success:(void (^)(void))successBlock
@@ -980,7 +980,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    @remarks 消息操作
  */
 - (void)getRemoteHistoryMessages:(ACConversationType)conversationType
-                        targetId:(long)targetId
+                        targetId:(NSString *)targetId
                       recordTime:(long long)recordTime
                            count:(int)count
                         complete:(void (^)(NSArray *messages, ACErrorCode code))complete;
@@ -996,7 +996,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
    @remarks 高级功能
  */
-- (NSArray *)getUnreadMentionedMessages:(ACConversationType)conversationType targetId:(long)targetId;
+- (NSArray *)getUnreadMentionedMessages:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 /*!
  *  \~chinese
@@ -1031,7 +1031,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
  *  用户在线接收的超级群未读消息已经保存到本地数据库，可以通过此接口获取到
  *  用户离线的超级群未读消息，用户在线之后不收离线未读消息，通过此接口获取第一条未读消息为空
  */
-- (ACMessage *)getFirstUnreadMessage:(ACConversationType)conversationType targetId:(long)targetId;
+- (ACMessage *)getFirstUnreadMessage:(ACConversationType)conversationType targetId:(NSString *)targetId;
 
 /*!
  *  \~chinese
@@ -1060,7 +1060,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (void)deleteMessages:(ACConversationType)conversationType
-              targetId:(long)targetId
+              targetId:(NSString *)targetId
                success:(void (^)(void))successBlock
                  error:(void (^)(ACErrorCode status))errorBlock;
 
@@ -1113,7 +1113,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
 
  */
 - (NSArray<ACMessage *> *)searchMessages:(ACConversationType)conversationType
-                                targetId:(long)targetId
+                                targetId:(NSString *)targetId
                                  keyword:(NSString *)keyword
                                    count:(int)count
                                startTime:(long long)startTime;

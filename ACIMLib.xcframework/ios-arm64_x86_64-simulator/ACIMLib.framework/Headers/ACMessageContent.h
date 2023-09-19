@@ -156,6 +156,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy) NSString *extra;
 
+
+/**
+ 将用户信息编码到字典中
+
+ @param userInfo 要编码的用户信息
+ @return 存有用户信息的 Dictionary
+ */
+- (NSDictionary *)encodeUserInfo:(ACUserInfo *)userInfo;
+
+/*!
+ 将消息内容中携带的用户信息解码
+
+ @param dictionary 用户信息的Dictionary
+ */
+- (void)decodeUserInfo:(NSDictionary *)dictionary;
+
+/*!
+ 消息内容的原始json数据
+
+ @discussion 此字段存放消息内容中未编码的json数据。
+ SDK内置的消息，如果消息解码失败，默认会将消息的内容存放到此字段；如果编码和解码正常，此字段会置为nil。
+ */
+@property (nonatomic, strong, nullable, setter=setRawJSONData:) NSData *rawJSONData;
+
 @end
 
 NS_ASSUME_NONNULL_END

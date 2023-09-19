@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  @remarks 会话
  
  */
-- (BOOL)setConversationToTop:(ACConversationType)conversationType targetId:(long)targetId channelId:(nullable NSString *)channelId isTop:(BOOL)isTop;
+- (BOOL)setConversationToTop:(ACConversationType)conversationType targetId:(NSString *)targetId channelId:(nullable NSString *)channelId isTop:(BOOL)isTop;
 
 
 #pragma mark - 发送消息
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (ACMessage *)sendMessage:(ACConversationType)conversationType
-                  targetId:(long)targetId
+                  targetId:(NSString *)targetId
                  channelId:(nullable NSString *)channelId
                    content:(ACMessageContent *)content
                 pushConfig:(nullable ACMessagePushConfig *)pushConfig
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param content             消息的内容
  @param pushConfig        接收方离线时的远程推送内容
  @param progressBlock       消息发送进度更新的回调 [progress:当前的发送进度, 0
- <= progress <= 100, messageId:消息的 ID]
+ <= progress <= 100, messageId:消息的 ID]f
  @param successBlock        消息发送成功的回调 [messageId:消息的 ID]
  @param errorBlock          消息发送失败的回调 [errorCode:发送失败的错误码,
  messageId:消息的 ID]
@@ -137,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (ACMessage *)sendMediaMessage:(ACConversationType)conversationType
-                       targetId:(long)targetId
+                       targetId:(NSString *)targetId
                       channelId:(nullable NSString *)channelId
                         content:(ACMessageContent *)content
                      pushConfig:(nullable ACMessagePushConfig *)pushConfig
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (ACMessage *)insertOutgoingMessage:(ACConversationType)conversationType
-                            targetId:(long)targetId
+                            targetId:(NSString *)targetId
                            channelId:(nullable NSString *)channelId
                           sentStatus:(ACSentStatus)sentStatus
                              content:(ACMessageContent *)content
@@ -197,7 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (ACMessage *)sendDirectionalMessage:(ACConversationType)conversationType
-                             targetId:(long)targetId
+                             targetId:(NSString *)targetId
                             channelId:(nullable NSString *)channelId
                          toUserIdList:(NSArray *)userIdList
                               content:(ACMessageContent *)content
@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  @remarks 消息操作
  */
 - (void)getMessages:(ACConversationType)conversationType
-           targetId:(long)targetId
+           targetId:(NSString *)targetId
           channelId:(NSString *)channelId
              option:(ACHistoryMessageOption *)option
            complete:(void (^)(NSArray *messages, ACErrorCode code))complete;
@@ -254,7 +254,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (void)clearHistoryMessages:(ACConversationType)conversationType
-                    targetId:(long)targetId
+                    targetId:(NSString *)targetId
                    channelId:(nullable NSString *)channelId
                   recordTime:(long long)recordTime
                  clearRemote:(BOOL)clearRemote
@@ -279,7 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
  @remarks 消息操作
  */
 - (void)getRemoteHistoryMessages:(ACConversationType)conversationType
-                        targetId:(long)targetId
+                        targetId:(NSString *)targetId
                        channelId:(nullable NSString *)channelId
                       recordTime:(long long)recordTime
                            count:(int)count
@@ -297,7 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @remarks 高级功能
  */
-- (NSArray *)getUnreadMentionedMessages:(ACConversationType)conversationType targetId:(long)targetId channelId:(nullable NSString *)channelId;
+- (NSArray *)getUnreadMentionedMessages:(ACConversationType)conversationType targetId:(NSString *)targetId channelId:(nullable NSString *)channelId;
 
 /**
  * 异步去获取会话里第一条未读消息。
@@ -309,7 +309,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @remarks 消息操作
  */
-- (void)getFirstUnreadMessageAsynchronously:(ACConversationType)conversationType targetId:(long)targetId channelId:(nullable NSString *)channelId complete:(void (^)(ACMessage *message, ACErrorCode code))complete;
+- (void)getFirstUnreadMessageAsynchronously:(ACConversationType)conversationType targetId:(NSString *)targetId channelId:(nullable NSString *)channelId complete:(void (^)(ACMessage *message, ACErrorCode code))complete;
 
 /*!
  删除某个会话中的所有消息
@@ -325,7 +325,7 @@ NS_ASSUME_NONNULL_BEGIN
  @remarks 消息操作
  */
 - (void)deleteMessages:(ACConversationType)conversationType
-              targetId:(long)targetId
+              targetId:(NSString *)targetId
              channelId:(nullable NSString *)channelId
                success:(void (^)(void))successBlock
                  error:(void (^)(ACErrorCode status))errorBlock;
@@ -342,7 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @remarks 会话
  */
-- (int)getUnreadCount:(ACConversationType)conversationType targetId:(long)targetId channelId:(nullable NSString *)channelId;
+- (int)getUnreadCount:(ACConversationType)conversationType targetId:(NSString *)targetId channelId:(nullable NSString *)channelId;
 
 
 /*!
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  */
 - (BOOL)clearAllMessagesUnreadStatus:(ACConversationType)conversationType
-                         targetId:(long)targetId channelId:(nullable NSString *)channelId;
+                         targetId:(NSString *)targetId channelId:(nullable NSString *)channelId;
 
 /*!
  *  \~chinese
@@ -378,7 +378,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  */
 - (BOOL)clearMessagesUnreadStatus:(ACConversationType)conversationType
-                         targetId:(long)targetId
+                         targetId:(NSString *)targetId
                         channelId:(nullable NSString *)channelId
                              time:(long long)timestamp;
 
@@ -402,7 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
  @remarks 会话
  */
 - (void)setConversationChannelNotificationLevel:(ACConversationType)conversationType
-                                       targetId:(long)targetId
+                                       targetId:(NSString *)targetId
                                       channelId:(NSString *)channelId
                                           level:(ACPushNotificationLevel)level
                                         success:(void (^)(void))successBlock
@@ -441,7 +441,7 @@ NS_ASSUME_NONNULL_BEGIN
  @remarks 会话
  */
 - (void)getConversationChannelNotificationLevel:(ACConversationType)conversationType
-                                       targetId:(long)targetId
+                                       targetId:(NSString *)targetId
                                       channelId:(NSString *)channelId
                                         success:(void (^)(ACPushNotificationLevel level))successBlock
                                           error:(void (^)(ACErrorCode status))errorBlock;
@@ -467,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  */
 - (NSArray<ACMessage *> *)searchMessages:(ACConversationType)conversationType
-                                targetId:(long)targetId
+                                targetId:(NSString *)targetId
                                channelId:(nullable NSString *)channelId
                                  keyword:(NSString *)keyword
                                    count:(int)count
