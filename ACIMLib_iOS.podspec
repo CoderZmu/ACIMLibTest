@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ACIMLib_iOS'
-  s.version          = '5'
+  s.version          = '6'
   s.summary          = '...'
   s.description  = <<-DESC
                         ACIMLib test
@@ -13,11 +13,12 @@ Pod::Spec.new do |s|
   s.author           = { 'iqcc' => 'muz64034@gmail.com' }
   s.source           = { :git => 'https://github.com/iqcc/ACIMLibTest.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
   s.requires_arc = true
+  s.platform     = :ios, "11.0"
 
-
-    s.source_files = 'ACIMLib_iOS/**/*.{h,m,c}'
+  s.vendored_frameworks = 'ACIMLib.xcframework'
+  s.dependency 'AliyunOSSiOS'
+  s.dependency 'libwebp'
 
 
 end
