@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  会话类
 
  @discussion 会话类，包含会话的所有属性。
@@ -26,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACConversation : NSObject
 
 /*!
- *  \~chinese
  会话类型
  *  \~english
  Conversation type
@@ -34,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACConversationType conversationType;
 
 /*!
- *  \~chinese
  会话 ID
  *  \~english
  Conversation ID
@@ -46,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *channelId;
 
 /*!
- *  \~chinese
  会话的标题
  *  \~english
  Title of the conversation
@@ -54,7 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *conversationTitle;
 
 /*!
- *  \~chinese
  会话中的未读消息数量
  *  \~english
  Number of unread messages in the conversation
@@ -62,7 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int unreadMessageCount;
 
 /*!
- *  \~chinese
  是否置顶，默认值为 NO
  
  *  \~english
@@ -72,7 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isTop;
 
 /*!
- *  \~chinese
  会话中最后一条消息的接收状态
  *  \~english
  The receiving status of the last message in the conversation
@@ -80,7 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACReceivedStatus receivedStatus;
 
 /*!
- *  \~chinese
  会话中最后一条消息的发送状态
  *  \~english
  The sending status of the last message in the conversation
@@ -88,7 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACSentStatus sentStatus;
 
 /*!
- *  \~chinese
  会话中最后一条消息的接收时间（Unix时间戳、毫秒）
  *  \~english
  Time of receipt of the last message in the conversation (Unix timestamp, milliseconds)
@@ -96,7 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long long receivedTime;
 
 /*!
- *  \~chinese
  会话中最后一条消息的发送时间（Unix时间戳、毫秒）
  *
  *  \~english
@@ -105,7 +95,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long long sentTime;
 
 /*!
- *  \~chinese
  会话中存在的草稿
  *  \~english
  Drafts that exist in the conversation
@@ -113,7 +102,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *draft;
 
 /*!
- *  \~chinese
  会话中最后一条消息的类型名
  *  \~english
  The type name of the last message in the conversation
@@ -121,7 +109,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *objectName;
 
 /*!
- *  \~chinese
  会话中最后一条消息的发送者用户 ID
  *  \~english
  User ID, the sender of the last message in the conversation.
@@ -129,7 +116,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long senderUserId;
 
 /*!
- *  \~chinese
  会话中最后一条消息的消息 ID
  *  \~english
  Message ID of the last message in the conversation.
@@ -137,7 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long lastestMessageId;
 
 /*!
- *  \~chinese
  会话中是否存在被 @ 的消息
 
  @discussion 在清除会话未读数（clearMessagesUnreadStatus:targetId:）的时候，会将此状态置成 NO。
@@ -150,7 +135,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL hasUnreadMentioned;
 
 /*!
- *  \~chinese
  会话中最后一条消息的内容
  *  \~english
  The content of the last message in the conversation
@@ -158,7 +142,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ACMessageContent *lastestMessage;
 
 /*!
- *  \~chinese
 会话是否是免打扰状态
  
  *  \~english

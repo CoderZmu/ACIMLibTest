@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  \~chinese
  媒体类型消息的父类
 
  @discussion
@@ -25,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACMediaMessageContent : ACMessageContent
 
 /**
- *  \~chinese
  媒体内容的本地路径（此属性必须有值）
  
  *  \~english
@@ -34,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *localPath;
 
 /**
- *  \~chinese
  媒体内容上传服务器后的网络地址（上传成功后 SDK 会为该属性赋值）
  
  *  \~english
@@ -48,7 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *encryptKey;
 
 /**
- *  \~chinese
  媒体内容的文件名（如不传使用 SDK 中 downloadMediaMessage 方法下载后会默认生成一个名称）
  
  *  \~english

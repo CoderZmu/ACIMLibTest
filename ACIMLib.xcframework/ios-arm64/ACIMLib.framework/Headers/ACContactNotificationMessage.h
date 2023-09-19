@@ -9,7 +9,6 @@
 #import "ACMessageContent.h"
 
 /*!
- *  \~chinese
  好友请求消息的类型名
  *  \~english
  The type name of the friend request message.
@@ -17,7 +16,6 @@
 #define ACContactNotificationMessageIdentifier @"RC:ContactNtf"
 
 /*!
- *  \~chinese
  请求添加好友
  *  \~english
  Request to add friends.
@@ -25,7 +23,6 @@
 #define ContactNotificationMessage_ContactOperationRequest @"Request"
 
 /*!
- *  \~chinese
  同意添加好友的请求
  *  \~english
  Agree to the request to add friends.
@@ -33,7 +30,6 @@
 #define ContactNotificationMessage_ContactOperationAcceptResponse @"AcceptResponse"
 
 /*!
- *  \~chinese
  拒绝添加好友的请求
  *  \~english
  Reject the request to add friends
@@ -41,7 +37,6 @@
 #define ContactNotificationMessage_ContactOperationRejectResponse @"RejectResponse"
 
 /*!
- *  \~chinese
  好友请求消息类
 
  @discussion 好友请求消息类，此消息会进行存储，但不计入未读消息数。
@@ -58,7 +53,6 @@
 @interface ACContactNotificationMessage : ACMessageContent
 
 /*!
- *  \~chinese
  好友请求的当前操作名
 
  @discussion
@@ -75,7 +69,6 @@
 @property (nonatomic, copy) NSString *operation;
 
 /*!
- *  \~chinese
  当前操作发起用户的用户 ID
  *  \~english
  User ID of the user who initiated the current operation
@@ -83,7 +76,6 @@
 @property (nonatomic, copy) NSString *sourceUserId;
 
 /*!
- *  \~chinese
  当前操作目标用户的用户 ID
  *  \~english
  The user ID of the target user for the current operation
@@ -91,7 +83,6 @@
 @property (nonatomic, copy) NSString *targetUserId;
 
 /*!
- *  \~chinese
  当前操作的消息内容
 
  @discussion 当前操作的消息内容，如同意、拒绝的理由等。
@@ -104,7 +95,6 @@
 @property (nonatomic, copy) NSString *message;
 
 /*!
- *  \~chinese
  初始化好友请求消息
 
  @param operation       好友请求当前的操作名

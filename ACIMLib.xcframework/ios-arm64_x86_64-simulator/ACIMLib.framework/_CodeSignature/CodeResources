@@ -6,35 +6,39 @@
 	<dict>
 		<key>Headers/ACChannelClient.h</key>
 		<data>
-		JQ2IDHyDmf9ESWV99pMweKsaJrs=
+		Qad032hcDs9nPLhJeSt1Tb1GMVg=
 		</data>
 		<key>Headers/ACCommandMessage.h</key>
 		<data>
-		8v3Shq9xg/iehUozQ6wLFTkg/Ok=
+		y1cKYqrx0m4v8KGZd2tClhhKfV4=
 		</data>
 		<key>Headers/ACContactNotificationMessage.h</key>
 		<data>
-		H+TjRh2Dwo4OC40+w5c8iyCYvzI=
+		1SmJAQH8XbQvPjuLtfFs+ofnglY=
 		</data>
 		<key>Headers/ACConversation.h</key>
 		<data>
-		yQmeC8hfkzkRkbM7HRozvNLo6lQ=
+		za/TWM0CVRvJYhawdXurnjPmHvY=
 		</data>
 		<key>Headers/ACConversationChannelProtocol.h</key>
 		<data>
 		NBpTw2zvp6IMsGZP29lbdUaUQ+Y=
 		</data>
+		<key>Headers/ACCoreClient.h</key>
+		<data>
+		sWxoE/n1v5AclAon7uUnmW/j+2Q=
+		</data>
 		<key>Headers/ACFileMessage.h</key>
 		<data>
-		SpVOHnFGYs2mVCkcwZGyy6PsoY0=
+		LfVTkkVxTfd65dfnoNuBIU01bWs=
 		</data>
 		<key>Headers/ACGIFMessage.h</key>
 		<data>
-		6IIUmpS7U/2AwFM8kXEgk06/D7w=
+		sw/WN7s5IMlD5FUVA1Do/0i6vt0=
 		</data>
 		<key>Headers/ACHQVoiceMessage.h</key>
 		<data>
-		WE2iZP63YgSOWyRh53MT9hBL4HE=
+		Akxuuhha2R9LfMhwwspbejEvfQM=
 		</data>
 		<key>Headers/ACHistoryMessageOption.h</key>
 		<data>
@@ -42,7 +46,7 @@
 		</data>
 		<key>Headers/ACIMClientProtocol.h</key>
 		<data>
-		klGW6efFfTn7Yb3F3SQO/zF5vhA=
+		tGzxeAv+nGKYDtR4FyOurWMBfsg=
 		</data>
 		<key>Headers/ACIMIWCommandMessage.h</key>
 		<data>
@@ -64,21 +68,17 @@
 		<data>
 		0rhAE9SItWRCyb/GhtXFJfvKFaU=
 		</data>
-		<key>Headers/ACIMLibClient.h</key>
+		<key>Headers/ACIMLibCore.h</key>
 		<data>
-		P63wK5vJ9iZ5c0o4fd7pvufLU+A=
+		kBNzwPvq3ztQEnb0SxSJ8qQ9HeU=
 		</data>
 		<key>Headers/ACImageMessage.h</key>
 		<data>
 		E7inagNg1wBZ//PYY8KxWrQrmEU=
 		</data>
-		<key>Headers/ACLogger.h</key>
-		<data>
-		rQ+ERSnhznNWA7SiDkN5R5aIuq0=
-		</data>
 		<key>Headers/ACMediaMessageContent.h</key>
 		<data>
-		jf0ERNJE0n9FPsnOeHzbDZ55h0o=
+		7ZFDObr9AeJGyuG7bE6Kt/+U/G0=
 		</data>
 		<key>Headers/ACMentionedInfo.h</key>
 		<data>
@@ -86,11 +86,11 @@
 		</data>
 		<key>Headers/ACMessage.h</key>
 		<data>
-		mw/8Hd57w72PpTC1mmgy34cjWhk=
+		JBf6XEBgkv9L8NDyoMb5T1LL+ww=
 		</data>
 		<key>Headers/ACMessageContent.h</key>
 		<data>
-		OXBdbYafI6//0vaiDPp6ejBgEqM=
+		uDXT0y09BP+9O2XGi3G5T76qlrM=
 		</data>
 		<key>Headers/ACMessageHeader.h</key>
 		<data>
@@ -98,15 +98,15 @@
 		</data>
 		<key>Headers/ACMessagePushConfig.h</key>
 		<data>
-		afdwmW3kqZD3Gw8h6Y+HKzEKigI=
+		PQRWqsWUMP25PsabnwH/vf8cVHA=
 		</data>
 		<key>Headers/ACPushProfile.h</key>
 		<data>
-		TCP1em+YvUZAP9UDNwnFiyUYsx8=
+		E219Pf1Fl7hM6fZOzRHScsg+4kM=
 		</data>
 		<key>Headers/ACRecallNotificationMessage.h</key>
 		<data>
-		X4GbXiXhQPn4U3Jg6zwKEslh8kg=
+		LFR6FtPYp8QS6HV9lM0mRtfnCBE=
 		</data>
 		<key>Headers/ACSendMessageConfig.h</key>
 		<data>
@@ -114,19 +114,19 @@
 		</data>
 		<key>Headers/ACSightMessage.h</key>
 		<data>
-		rSBvWaHD4GqLbCrDoNHMiFWArAs=
+		jT8RhrK151wUWl0wmNM0bJ+3o+c=
 		</data>
 		<key>Headers/ACStatusDefine.h</key>
 		<data>
-		ri0OOdDIOhAam7vyGqCWfdgbr5k=
+		52uT7yPpnhcihryCjQPeqXz9oVw=
 		</data>
 		<key>Headers/ACTextMessage.h</key>
 		<data>
-		HqT9UuXOp9ufsSJrezz+V4C6xeU=
+		gLyp5JXBnN8kaWgCjyRB6qkXI6U=
 		</data>
 		<key>Headers/ACUserInfo.h</key>
 		<data>
-		5ii/FyISjRU9vsCvUbGMhxudBb0=
+		N8oCtkPxPgyrCneduWUSqJc0Z6U=
 		</data>
 		<key>Headers/ACUtilities.h</key>
 		<data>
@@ -143,44 +143,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JQ2IDHyDmf9ESWV99pMweKsaJrs=
+			Qad032hcDs9nPLhJeSt1Tb1GMVg=
 			</data>
 			<key>hash2</key>
 			<data>
-			7ObAeA7xhJ+Nr4br50ptcf1d+eSBjd9VYLDOq5SAEXo=
+			7PSyipMOt84IXjI9TvJNcxESHmNo6so/NCXoxdfEozI=
 			</data>
 		</dict>
 		<key>Headers/ACCommandMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8v3Shq9xg/iehUozQ6wLFTkg/Ok=
+			y1cKYqrx0m4v8KGZd2tClhhKfV4=
 			</data>
 			<key>hash2</key>
 			<data>
-			g8JH2IeYmXsvwqLoygVEDKsb7OTn50X10Ay7EzqJN1k=
+			2KwrEQjjZdeYbrlgssFjEVJolXb2Uxr/PlQ2fEVqqEI=
 			</data>
 		</dict>
 		<key>Headers/ACContactNotificationMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H+TjRh2Dwo4OC40+w5c8iyCYvzI=
+			1SmJAQH8XbQvPjuLtfFs+ofnglY=
 			</data>
 			<key>hash2</key>
 			<data>
-			tGFLs3F/n5v3YZnJKVSkt2oCaqJ7Ne9pRttnK/aH9o4=
+			SEnva1sUWLgTiz4jLi441umKWVXQ1NexqOlQ9m81jPY=
 			</data>
 		</dict>
 		<key>Headers/ACConversation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yQmeC8hfkzkRkbM7HRozvNLo6lQ=
+			za/TWM0CVRvJYhawdXurnjPmHvY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Br06iV8VQznwqEIfp1yD3ybKYvq8/1utVEHwBJu5yRA=
+			If+GeV4g3heS6mHEo6heR7GQ9JDUHS5cWHvWVCwwGx4=
 			</data>
 		</dict>
 		<key>Headers/ACConversationChannelProtocol.h</key>
@@ -194,37 +194,48 @@
 			3Fyud9cGpZer0E4yVQ7rS+Kswax7FwnBX9nVd64zwj8=
 			</data>
 		</dict>
+		<key>Headers/ACCoreClient.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sWxoE/n1v5AclAon7uUnmW/j+2Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			/QkSafLyLQqqMQLP6Q39iVrYsGAEOD6JjUMXHA84dGA=
+			</data>
+		</dict>
 		<key>Headers/ACFileMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SpVOHnFGYs2mVCkcwZGyy6PsoY0=
+			LfVTkkVxTfd65dfnoNuBIU01bWs=
 			</data>
 			<key>hash2</key>
 			<data>
-			f+Wm3ufnZ2ZTMpTTGFPvinZrC+IWNJIfvdQxVkOhj8s=
+			1ZXVqH7LfCOEH1grmAu1Q4NalHhY2cnCfM1Tz6epeqk=
 			</data>
 		</dict>
 		<key>Headers/ACGIFMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6IIUmpS7U/2AwFM8kXEgk06/D7w=
+			sw/WN7s5IMlD5FUVA1Do/0i6vt0=
 			</data>
 			<key>hash2</key>
 			<data>
-			IvCrsi5nAQKJP6XmMxrzBz7Is35yFErW9CpaVeEqMWY=
+			FPUAi3cP6BKbJJOYl5H1K3jX/ndWHyMkYo9BkcfMvGc=
 			</data>
 		</dict>
 		<key>Headers/ACHQVoiceMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WE2iZP63YgSOWyRh53MT9hBL4HE=
+			Akxuuhha2R9LfMhwwspbejEvfQM=
 			</data>
 			<key>hash2</key>
 			<data>
-			i6apvfJ/ApZ/EVJwS0n2rwsk1EZodND7KSFV7pUjpcc=
+			/O6Jdh4f5Sq0fJsLps6D84/z6nxMsvzQ3uyjQtoINpE=
 			</data>
 		</dict>
 		<key>Headers/ACHistoryMessageOption.h</key>
@@ -242,11 +253,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			klGW6efFfTn7Yb3F3SQO/zF5vhA=
+			tGzxeAv+nGKYDtR4FyOurWMBfsg=
 			</data>
 			<key>hash2</key>
 			<data>
-			AympSuDQ9mGCU/9mwgqk5s4uk6bPBo9lkDU7qmaBx0o=
+			4C39EVtyymS43CTESsZ+SArrkdbqiY0a5WdnZtLsCqo=
 			</data>
 		</dict>
 		<key>Headers/ACIMIWCommandMessage.h</key>
@@ -304,15 +315,15 @@
 			0TV4550I/LjiKNRpmmjdSmOxgegKdypgKs5Rh3elw4k=
 			</data>
 		</dict>
-		<key>Headers/ACIMLibClient.h</key>
+		<key>Headers/ACIMLibCore.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			P63wK5vJ9iZ5c0o4fd7pvufLU+A=
+			kBNzwPvq3ztQEnb0SxSJ8qQ9HeU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y2l7Wx6lRgInz4wVrGXhMsKe+ioXBC/pic5U1A2UWWI=
+			GavmtfARlk8ItjudREbyroACqlrtK78Nf7MYADyl06c=
 			</data>
 		</dict>
 		<key>Headers/ACImageMessage.h</key>
@@ -326,26 +337,15 @@
 			duFrFE4gPn+QRsy9KnGazTKMcZSAFg4/sYy0aNtAPew=
 			</data>
 		</dict>
-		<key>Headers/ACLogger.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rQ+ERSnhznNWA7SiDkN5R5aIuq0=
-			</data>
-			<key>hash2</key>
-			<data>
-			SAQ+rm1CZAlxFLNJTgmHPuUMqUJgDlx/cfGKkRlhW6w=
-			</data>
-		</dict>
 		<key>Headers/ACMediaMessageContent.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jf0ERNJE0n9FPsnOeHzbDZ55h0o=
+			7ZFDObr9AeJGyuG7bE6Kt/+U/G0=
 			</data>
 			<key>hash2</key>
 			<data>
-			VotvTKVWc8PNhh9rv05vDQUXbBusEWUKxdWGs/0Jv5w=
+			BnBrLbDdyiq8JgRsMUSm96myf0ky/2/I8LqPSlfOhbI=
 			</data>
 		</dict>
 		<key>Headers/ACMentionedInfo.h</key>
@@ -363,22 +363,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mw/8Hd57w72PpTC1mmgy34cjWhk=
+			JBf6XEBgkv9L8NDyoMb5T1LL+ww=
 			</data>
 			<key>hash2</key>
 			<data>
-			YGsPs02mF9DMAq3agbk4PjDmrWibew75y5mcS17vp9M=
+			X6qMpgdYR0+pRj9K30w641tgIw/DKLgGNYQu1hdzIAY=
 			</data>
 		</dict>
 		<key>Headers/ACMessageContent.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OXBdbYafI6//0vaiDPp6ejBgEqM=
+			uDXT0y09BP+9O2XGi3G5T76qlrM=
 			</data>
 			<key>hash2</key>
 			<data>
-			fIhpVBcAoTGlVwQvU9mKlJA8PgcjSJwm5rUn06rUxXE=
+			ANL0mJktxtaYY1nodVNbhPO1YOG4GssJBzbgInu+u3k=
 			</data>
 		</dict>
 		<key>Headers/ACMessageHeader.h</key>
@@ -396,33 +396,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			afdwmW3kqZD3Gw8h6Y+HKzEKigI=
+			PQRWqsWUMP25PsabnwH/vf8cVHA=
 			</data>
 			<key>hash2</key>
 			<data>
-			RwEELg8VzPe3VOHS7PUNXF1C2GQCq5PkRDPnEEFQFns=
+			CYIDWMT4Qy7AYfWisWFsk/iFJWuuLBE7CxZYLSOGBBo=
 			</data>
 		</dict>
 		<key>Headers/ACPushProfile.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TCP1em+YvUZAP9UDNwnFiyUYsx8=
+			E219Pf1Fl7hM6fZOzRHScsg+4kM=
 			</data>
 			<key>hash2</key>
 			<data>
-			hnJqhjFA977T1DzErzoDnH/e8zwLluC4bao8fQfFk6o=
+			dgdfZx41RUiJ+Px/qtrYeJg4oEC0JycwkLe8kiVZRkc=
 			</data>
 		</dict>
 		<key>Headers/ACRecallNotificationMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X4GbXiXhQPn4U3Jg6zwKEslh8kg=
+			LFR6FtPYp8QS6HV9lM0mRtfnCBE=
 			</data>
 			<key>hash2</key>
 			<data>
-			fkidMaGy2OHeqm7XLyc85B/WhwLGWMndix8cuuNgijU=
+			2wDGLHxEMiNVrWe5Np9vfKcf3/v4sI6fZGfG8q+o6mM=
 			</data>
 		</dict>
 		<key>Headers/ACSendMessageConfig.h</key>
@@ -440,44 +440,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rSBvWaHD4GqLbCrDoNHMiFWArAs=
+			jT8RhrK151wUWl0wmNM0bJ+3o+c=
 			</data>
 			<key>hash2</key>
 			<data>
-			cEhkqSiaxmQ5wmZemOYZp60wLTuz88EvLzf2zOMtErI=
+			/M2uPopKuKgt3uuGBVBGFClGibcZ6UgHMYtcsW1ms7Y=
 			</data>
 		</dict>
 		<key>Headers/ACStatusDefine.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ri0OOdDIOhAam7vyGqCWfdgbr5k=
+			52uT7yPpnhcihryCjQPeqXz9oVw=
 			</data>
 			<key>hash2</key>
 			<data>
-			D9GhFMt9vHIuLHloLGGaW95nKg1dU6RQQO4+WBa/lOY=
+			Eh+w7dp3yxm2CDPRZU3yk5o45talxIMuWkGkFZ9ePlg=
 			</data>
 		</dict>
 		<key>Headers/ACTextMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HqT9UuXOp9ufsSJrezz+V4C6xeU=
+			gLyp5JXBnN8kaWgCjyRB6qkXI6U=
 			</data>
 			<key>hash2</key>
 			<data>
-			9VF9FvgUgiqbJEqBldn/kqDpYaWFJ4R9JTeXHIF2jbA=
+			4Qiar/FOwHZJs8beqCv/ZYPlGXJ6Usl1BPHm9TKtvwk=
 			</data>
 		</dict>
 		<key>Headers/ACUserInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5ii/FyISjRU9vsCvUbGMhxudBb0=
+			N8oCtkPxPgyrCneduWUSqJc0Z6U=
 			</data>
 			<key>hash2</key>
 			<data>
-			5JHQ5yii7rC58VaZW4vJuiRVyAmCC/RPTO8Rd6e6cjc=
+			9GdFV64ZNC3MukGpXkXb9uDiMpf6nbcnsR1nYN4OYgs=
 			</data>
 		</dict>
 		<key>Headers/ACUtilities.h</key>

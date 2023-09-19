@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /*!
- *  \~chinese
  命令消息的类型名
  *  \~english
  The type name of the command message
@@ -18,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define ACCommandMessageIdentifier @"RC:CmdMsg"
 
 /*!
- *  \~chinese
  命令消息类
 
  @discussion 命令消息类，此消息不存储不计入未读消息数。
@@ -38,7 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
 命令的名称
  *  \~english
  The name of the command
@@ -46,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *name;
 
 /*!
- *  \~chinese
  命令的扩展数据
 
  @discussion 命令的扩展数据，可以为任意字符串，如存放您定义的json数据。
@@ -59,7 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *data;
 
 /*!
- *  \~chinese
  初始化命令消息
 
  @param name    命令的名称

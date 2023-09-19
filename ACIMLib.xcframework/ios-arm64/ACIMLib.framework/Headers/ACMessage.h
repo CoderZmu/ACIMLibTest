@@ -13,7 +13,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /*!
- *  \~chinese
  消息实体类
 
  @discussion 消息实体类，包含消息的所有属性。
@@ -26,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACMessage : NSObject
 
 /*!
- *  \~chinese
  会话类型
  
  *  \~english
@@ -35,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACConversationType conversationType;
 
 /*!
- *  \~chinese
  会话 ID
  
  *  \~english
@@ -49,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *channelId;
 
 /*!
- *  \~chinese
  消息的 ID
 
  @discussion 本地存储的消息的唯一值（数据库索引唯一值）
@@ -62,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long messageId;
 
 /*!
- *  \~chinese
  消息的方向
  
  *  \~english
@@ -71,7 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACMessageDirection messageDirection;
 
 /*!
- *  \~chinese
  消息的发送者 ID
  
  *  \~english
@@ -80,7 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long senderUserId;
 
 /*!
- *  \~chinese
  消息的接收状态
  
  *  \~english
@@ -89,7 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACReceivedStatus receivedStatus;
 
 /*!
- *  \~chinese
  消息的发送状态
  
  *  \~english
@@ -98,7 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) ACSentStatus sentStatus;
 
 /*!
- *  \~chinese
  消息的接收时间（Unix 时间戳、毫秒）
  
  *  \~english
@@ -107,7 +98,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long long receivedTime;
 
 /*!
- *  \~chinese
  消息的发送时间（Unix 时间戳、毫秒）
  
  *  \~english
@@ -117,7 +107,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  消息的类型名
  
  *  \~english
@@ -126,7 +115,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *objectName;
 
 /*!
- *  \~chinese
  消息的内容
  
  *  \~english
@@ -135,7 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ACMessageContent *content;
 
 /*!
- *  \~chinese
  消息的附加字段
  
  *  \~english
@@ -145,7 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  全局唯一 ID
 
  @discussion 服务器消息唯一 ID（在同一个 Appkey 下全局唯一）
@@ -177,7 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  ACMessage初始化方法
 
  @param  conversationType    会话类型

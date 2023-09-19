@@ -9,25 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /*!
- *  \~chinese
  用户信息类
  */
 @interface ACUserInfo : NSObject
 
 /*!
- *  \~chinese
  用户 ID
  */
 @property (nonatomic, assign) NSString *userId;
 
 /*!
- *  \~chinese
  用户名称
  */
 @property (nonatomic, copy) NSString *name;
 
 /*!
- *  \~chinese
  用户头像的 URL
  */
 @property (nonatomic, copy) NSString *portraitUri;
@@ -38,14 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  \~chinese
  用户信息附加字段
 
  */
 @property (nonatomic, copy) NSString *extra;
 
 /*!
- *  \~chinese
  用户信息的初始化方法
 
  @param userId      用户 ID

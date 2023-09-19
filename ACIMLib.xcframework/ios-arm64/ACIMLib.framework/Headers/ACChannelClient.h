@@ -43,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 会话列表
 
 /*!
- *  \~chinese
  设置会话的置顶状态
 
  @param conversationType    会话类型
@@ -61,7 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 发送消息
 
 /*!
- *  \~chinese
  发送消息
 
  @param conversationType    发送消息的会话类型
@@ -100,7 +98,6 @@ NS_ASSUME_NONNULL_BEGIN
                      error:(void (^)(ACErrorCode nErrorCode, long messageId))errorBlock;
 
 /*!
- *  \~chinese
  发送媒体消息（图片消息或文件消息）
 
  @param conversationType    发送消息的会话类型
@@ -149,7 +146,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  插入向外发送的、指定时间的消息（此方法如果 sentTime 有问题会影响消息排序，慎用！！）
 （该消息只插入本地数据库，实际不会发送给服务器和对方）
 
@@ -174,7 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
                             sentTime:(long long)sentTime;
 
 /*!
- *  \~chinese
  发送定向消息
 
  @param conversationType 发送消息的会话类型
@@ -227,12 +222,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getMessages:(ACConversationType)conversationType
            targetId:(NSString *)targetId
-          channelId:(NSString *)channelId
+          channelId:(nullable NSString *)channelId
              option:(ACHistoryMessageOption *)option
-           complete:(void (^)(NSArray *messages, ACErrorCode code))complete;
+           complete:(void (^)(NSArray<ACMessage *> *messages, ACErrorCode code))complete;
 
 /*!
- *  \~chinese
  清除历史消息
 
  @param conversationType    会话类型
@@ -283,7 +277,7 @@ NS_ASSUME_NONNULL_BEGIN
                        channelId:(nullable NSString *)channelId
                       recordTime:(long long)recordTime
                            count:(int)count
-                         complete:(void (^)(NSArray *messages, ACErrorCode code))complete;
+                         complete:(void (^)(NSArray<ACMessage *> *messages, ACErrorCode code))complete;
 
 /*!
  获取会话中@提醒自己的消息
@@ -297,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @remarks 高级功能
  */
-- (NSArray *)getUnreadMentionedMessages:(ACConversationType)conversationType targetId:(NSString *)targetId channelId:(nullable NSString *)channelId;
+- (NSArray<ACMessage *> *)getUnreadMentionedMessages:(ACConversationType)conversationType targetId:(NSString *)targetId channelId:(nullable NSString *)channelId;
 
 /**
  * 异步去获取会话里第一条未读消息。
@@ -346,7 +340,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  清除某个会话中的所有未读消息数
 
  @param conversationType    会话类型，不支持聊天室
@@ -363,7 +356,6 @@ NS_ASSUME_NONNULL_BEGIN
                          targetId:(NSString *)targetId channelId:(nullable NSString *)channelId;
 
 /*!
- *  \~chinese
  清除某个会话中的未读消息数（该会话在时间戳 timestamp 之前的消息将被置成已读。）
 
  @param conversationType    会话类型，不支持聊天室
@@ -449,7 +441,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 搜索
 
 /*!
- *  \~chinese
  根据关键字搜索指定会话中的本地消息
 
  @param conversationType 会话类型

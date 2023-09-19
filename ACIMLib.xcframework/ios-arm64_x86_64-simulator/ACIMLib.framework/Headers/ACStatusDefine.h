@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark ACConnectErrorCode
 /*!
- *  \~chinese
  建立连接返回的错误码
  
  *  \~english
@@ -23,8 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
 
     /*!
-     *  \~chinese
-     AppKey 错误
+         AppKey 错误
 
      @discussion 请检查您使用的 AppKey 是否正确。
      
@@ -36,8 +34,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CONN_ID_REJECT = 31002,
 
     /*!
-     *  \~chinese
-     Token 无效
+         Token 无效
 
      @discussion 请检查客户端初始化使用的 AppKey 和您服务器获取 token 使用的 AppKey 是否一致。
      @discussion 您可能需要请求您的服务器重新获取 token，并使用新的 token 建立连接。
@@ -52,8 +49,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CONN_TOKEN_INCORRECT = 31004,
 
     /*!
-     *  \~chinese
-     用户被封禁
+         用户被封禁
 
      @discussion 请检查您使用的 Token 是否正确，以及对应的 UserId 是否被封禁。
      
@@ -65,8 +61,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CONN_USER_BLOCKED = 31009,
 
     /*!
-     *  \~chinese
-     用户被踢下线
+         用户被踢下线
 
       @discussion 当前用户在其他设备上登录，此设备被踢下线
      
@@ -78,8 +73,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_DISCONN_KICK = 31010,
     
     /*!
-     *  \~chinese
-     token 已过期
+         token 已过期
      
      @discussion 您可能需要请求您的服务器重新获取 token，并使用新的 token 建立连接。
     
@@ -91,8 +85,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CONN_TOKEN_EXPIRE = 31020,
 
     /*!
-     *  \~chinese
-     用户在其它设备上登录
+         用户在其它设备上登录
 
       @discussion 重连过程中当前用户在其它设备上登录
      
@@ -104,8 +97,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CONN_OTHER_DEVICE_LOGIN = 31023,
 
     /*!
-     *  \~chinese
-     SDK 没有初始化
+         SDK 没有初始化
 
      @discussion 在使用 SDK 任何功能之前，必须先 Init。
      
@@ -117,8 +109,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CLIENT_NOT_INIT = 33001,
     
     /*!
-     *  \~chinese
-     数据库错误
+         数据库错误
      
      
      *  \~english
@@ -127,8 +118,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_DATABASE_ERROR = 33002,
 
     /*!
-     *  \~chinese
-     开发者接口调用时传入的参数错误
+         开发者接口调用时传入的参数错误
 
      @discussion 请检查接口调用时传入的参数类型和值。
      
@@ -140,8 +130,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_INVALID_PARAMETER = 33003,
 
     /*!
-     *  \~chinese
-     Connection 已经存在
+         Connection 已经存在
 
      @discussion
      调用过connect之后，只有在 token 错误或者被踢下线或者用户 logout 的情况下才需要再次调用 connect。其它情况下 SDK
@@ -156,8 +145,7 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
     AC_CONNECTION_EXIST = 34001,
 
     /*!
-     *  \~chinese
-     连接超时。
+         连接超时。
 
     @discussion 当调用 connectWithToken:timeLimit:dbOpened:success:error:  接口，timeLimit 为有效值时，SDK 在 timeLimit 时间内还没连接成功返回此错误。
      
@@ -178,7 +166,6 @@ typedef NS_ENUM(NSInteger, ACDBErrorCode) {
 
 #pragma mark - ACConnectionStatus
 /*!
- *  \~chinese
  网络连接状态码
  
  *  \~english
@@ -186,8 +173,7 @@ typedef NS_ENUM(NSInteger, ACDBErrorCode) {
  */
 typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     /*!
-     *  \~chinese
-     未知状态
+         未知状态
 
      @discussion 建立连接中出现异常的临时状态，SDK 会做好自动重连，开发者无须处理。
      
@@ -199,8 +185,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_UNKNOWN = -1,
 
     /*!
-     *  \~chinese
-     连接成功
+         连接成功
      
      *  \~english
      Connected successfully
@@ -208,8 +193,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_Connected = 0,
 
     /*!
-     *  \~chinese
-     连接过程中，当前设备网络不可用
+         连接过程中，当前设备网络不可用
 
      @discussion 当网络恢复可用时，SDK 会做好自动重连，开发者无须处理。
      
@@ -221,8 +205,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_NETWORK_UNAVAILABLE = 1,
 
     /*!
-     *  \~chinese
-     当前用户在其他设备上登录，此设备被踢下线
+         当前用户在其他设备上登录，此设备被踢下线
      
      *  \~english
      The current user is logged in on another device, and this device is kicked off the line.
@@ -230,8 +213,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT = 6,
 
     /*!
-     *  \~chinese
-     连接中
+         连接中
      
      *  \~english
      Connecting
@@ -239,8 +221,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_Connecting = 10,
 
     /*!
-     *  \~chinese
-     连接失败或未连接
+         连接失败或未连接
      
      *  \~english
      Connection failed or not connected.
@@ -248,8 +229,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_Unconnected = 11,
 
     /*!
-     *  \~chinese
-     已登出
+         已登出
      
      *  \~english
      Logged out.
@@ -257,8 +237,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_SignOut = 12,
 
     /*!
-     *  \~chinese
-     连接暂时挂起（多是由于网络问题导致），SDK 会在合适时机进行自动重连
+         连接暂时挂起（多是由于网络问题导致），SDK 会在合适时机进行自动重连
      
      *  \~english
      Connection is temporarily suspended (mostly due to network problems that cause) and SDK will reconnect automatically at the appropriate time.
@@ -266,8 +245,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_Suspend = 13,
 
     /*!
-     *  \~chinese
-     自动连接超时，SDK 将不会继续连接，用户需要做超时处理，再自行调用 connectWithToken 接口进行连接
+         自动连接超时，SDK 将不会继续连接，用户需要做超时处理，再自行调用 connectWithToken 接口进行连接
      
      *  \~english
      Automatic connection timeout, SDK will not continue to connect, users shall do timeout handling, and the connectWithToken interface is called to connect.
@@ -275,8 +253,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_Timeout = 14,
 
     /*!
-     *  \~chinese
-     Token无效
+         Token无效
 
      @discussion
      Token 无效一般有两种原因。一是 token 错误，请您检查客户端初始化使用的 AppKey 和您服务器获取 token 使用的 AppKey
@@ -293,8 +270,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
     ConnectionStatus_TOKEN_INCORRECT = 15,
 
     /*!
-     *  \~chinese
-     与服务器的连接已断开,用户被封禁
+         与服务器的连接已断开,用户被封禁
      
      *  \~english
      The connection to the server has been disconnected and the user is blocked.
@@ -305,7 +281,6 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
 
 #pragma mark ACConversationType
 /*!
- *  \~chinese
  会话类型
  
  *  \~english
@@ -313,8 +288,7 @@ typedef NS_ENUM(NSInteger, ACConnectionStatus) {
  */
 typedef NS_ENUM(NSUInteger, ACConversationType) {
     /*!
-     *  \~chinese
-     单聊
+         单聊
      
      *  \~english
      Chat alone
@@ -322,8 +296,7 @@ typedef NS_ENUM(NSUInteger, ACConversationType) {
     ConversationType_PRIVATE = 1,
     
     /*!
-     *  \~chinese
-     讨论组
+         讨论组
      
      *  \~english
      Discussion group
@@ -331,8 +304,7 @@ typedef NS_ENUM(NSUInteger, ACConversationType) {
     ConversationType_DISCUSSION = 2,
 
     /*!
-     *  \~chinese
-     群组
+         群组
      
      *  \~english
      Group
@@ -348,7 +320,6 @@ typedef NS_ENUM(NSUInteger, ACConversationType) {
 
 #pragma mark ACConversationNotificationStatus
 /*!
- *  \~chinese
  会话提醒状态
  
  *  \~english
@@ -356,8 +327,7 @@ typedef NS_ENUM(NSUInteger, ACConversationType) {
  */
 typedef NS_ENUM(NSUInteger, ACConversationNotificationStatus) {
     /*!
-     *  \~chinese
-     免打扰
+         免打扰
      
      *  \~english
      Do not disturb
@@ -365,8 +335,7 @@ typedef NS_ENUM(NSUInteger, ACConversationNotificationStatus) {
     DO_NOT_DISTURB = 0,
 
     /*!
-     *  \~chinese
-     新消息提醒
+         新消息提醒
      
      *  \~english
      New message reminder
@@ -377,7 +346,6 @@ typedef NS_ENUM(NSUInteger, ACConversationNotificationStatus) {
 
 #pragma mark ACMessagePersistent
 /*!
- *  \~chinese
  消息的存储策略
  
  *  \~english
@@ -385,8 +353,7 @@ typedef NS_ENUM(NSUInteger, ACConversationNotificationStatus) {
  */
 typedef NS_ENUM(NSUInteger, ACMessagePersistent) {
     /*!
-     *  \~chinese
-     在本地不存储，不计入未读数
+         在本地不存储，不计入未读数
      
      *  \~english
      It is not stored locally and is not counted as unread number
@@ -394,8 +361,7 @@ typedef NS_ENUM(NSUInteger, ACMessagePersistent) {
     MessagePersistent_NONE = 0,
 
     /*!
-     *  \~chinese
-     在本地只存储，但不计入未读数
+         在本地只存储，但不计入未读数
      
      *  \~english
      Only stored locally, but not counted as unread number
@@ -403,8 +369,7 @@ typedef NS_ENUM(NSUInteger, ACMessagePersistent) {
     MessagePersistent_ISPERSISTED = 1,
 
     /*!
-     *  \~chinese
-     在本地进行存储并计入未读数
+         在本地进行存储并计入未读数
      
      *  \~english
      Store locally and count as unread number
@@ -412,8 +377,7 @@ typedef NS_ENUM(NSUInteger, ACMessagePersistent) {
     MessagePersistent_ISCOUNTED = 3,
 
     /*!
-     *  \~chinese
-     在本地不存储，不计入未读数，并且如果对方不在线，服务器会直接丢弃该消息，对方如果之后再上线也不会再收到此消息。
+         在本地不存储，不计入未读数，并且如果对方不在线，服务器会直接丢弃该消息，对方如果之后再上线也不会再收到此消息。
 
      @discussion 一般用于发送输入状态之类的消息，该类型消息的messageUId为nil。
      
@@ -428,7 +392,6 @@ typedef NS_ENUM(NSUInteger, ACMessagePersistent) {
 
 #pragma mark ACMessageDirection
 /*!
- *  \~chinese
  消息的方向
  
  *  \~english
@@ -436,8 +399,7 @@ typedef NS_ENUM(NSUInteger, ACMessagePersistent) {
  */
 typedef NS_ENUM(NSUInteger, ACMessageDirection) {
     /*!
-     *  \~chinese
-     发送
+         发送
      
      *  \~english
      Send
@@ -445,8 +407,7 @@ typedef NS_ENUM(NSUInteger, ACMessageDirection) {
     MessageDirection_SEND = 1,
 
     /*!
-     *  \~chinese
-     接收
+         接收
      
      *  \~english
      Receive
@@ -458,7 +419,6 @@ typedef NS_ENUM(NSUInteger, ACMessageDirection) {
 
 #pragma mark ACReceivedStatus
 /*!
- *  \~chinese
  消息的接收状态
  
  *  \~english
@@ -466,8 +426,7 @@ typedef NS_ENUM(NSUInteger, ACMessageDirection) {
  */
 typedef NS_ENUM(NSUInteger, ACReceivedStatus) {
     /*!
-     *  \~chinese
-     未读
+         未读
      
      *  \~english
      Unread
@@ -475,8 +434,7 @@ typedef NS_ENUM(NSUInteger, ACReceivedStatus) {
     ReceivedStatus_UNREAD = 0,
 
     /*!
-     *  \~chinese
-     已读
+         已读
      
      *  \~english
      Read
@@ -494,7 +452,6 @@ typedef NS_ENUM(NSUInteger, ACReceivedStatus) {
 
 #pragma mark ACSentStatus
 /*!
- *  \~chinese
  消息的发送状态
  
  *  \~english
@@ -502,8 +459,7 @@ typedef NS_ENUM(NSUInteger, ACReceivedStatus) {
  */
 typedef NS_ENUM(NSUInteger, ACSentStatus) {
     /*!
-     *  \~chinese
-     发送中
+         发送中
      
      *  \~english
      Sending
@@ -511,8 +467,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_SENDING = 10,
 
     /*!
-     *  \~chinese
-     发送失败
+         发送失败
      
      *  \~english
      Failed to send
@@ -520,8 +475,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_FAILED = 20,
 
     /*!
-     *  \~chinese
-     已发送成功
+         已发送成功
      
      *  \~english
      Sent successfully
@@ -529,8 +483,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_SENT = 30,
 
     /*!
-     *  \~chinese
-     对方已接收
+         对方已接收
      
      *  \~english
      The other party has received
@@ -538,8 +491,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_RECEIVED = 40,
 
     /*!
-     *  \~chinese
-     对方已阅读
+         对方已阅读
      
      *  \~english
      The other party has read
@@ -547,8 +499,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_READ = 50,
 
     /*!
-     *  \~chinese
-     对方已销毁
+         对方已销毁
      
      *  \~english
      The other party has been destroyed
@@ -556,8 +507,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_DESTROYED = 60,
 
     /*!
-     *  \~chinese
-     发送已取消
+         发送已取消
      
      *  \~english
      Sending is canceled
@@ -565,8 +515,7 @@ typedef NS_ENUM(NSUInteger, ACSentStatus) {
     SentStatus_CANCELED = 70,
 
     /*!
-     *  \~chinese
-     无效类型
+         无效类型
      
      *  \~english
      Invalid type
@@ -844,7 +793,6 @@ typedef NS_ENUM(NSInteger, ACPushNotificationLevel) {
 
 #pragma mark ACPushLauguageType
 /*!
- *  \~chinese
  push 语言设置
  
  *  \~english
@@ -852,16 +800,14 @@ typedef NS_ENUM(NSInteger, ACPushNotificationLevel) {
  */
 typedef NS_ENUM(NSUInteger, ACPushLanguage) {
     /*!
-     *  \~chinese
-     英文
+         英文
      
      *  \~english
      English
      */
     ACPushLanguage_EN_US = 1,
     /*!
-     *  \~chinese
-     中文
+         中文
      
      *  \~english
      Chinese

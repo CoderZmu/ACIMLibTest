@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /*!
- *  \~chinese
  高清语音消息类型名
  
  *  \~english
@@ -19,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define ACHQVoiceMessageTypeIdentifier @"RC:HQVCMsg"
 
 /*!
- *  \~chinese
  高清语音消息类
  
  @discussion 高清语音消息类，此消息会进行存储并计入未读消息数。
@@ -36,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACHQVoiceMessage : ACMediaMessageContent
 
 /*!
- *  \~chinese
  语音消息的时长，以秒为单位
  
  *  \~english
@@ -50,7 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, copy) NSString *type;
 
 /*!
- *  \~chinese
  初始化高清语音消息
 
  @param localPath 语音的本地路径

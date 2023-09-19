@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /*!
- *  \~chinese
  撤回通知消息的类型名
  
  *  \~english
@@ -19,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define ACRecallNotificationMessageIdentifier @"RC:RcNtf"
 
 /*!
- *  \~chinese
  撤回通知消息类
  @discussion 撤回通知消息，此消息会进行本地存储，但不计入未读消息数。
  
@@ -34,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACRecallNotificationMessage : ACMessageContent
 
 /*!
- *  \~chinese
  发起撤回操作的用户 ID
  
  *  \~english
@@ -43,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long operatorId;
 
 /*!
- *  \~chinese
  撤回的时间（毫秒）
  
  *  \~english
@@ -52,7 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long long recallTime;
 
 /*!
- *  \~chinese
  原消息的消息类型名
  
  *  \~english
@@ -61,7 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *originalObjectName;
 
 /*!
- *  \~chinese
  是否是管理员操作
  
  *  \~english
@@ -70,7 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isAdmin;
 
 /*!
- *  \~chinese
  撤回的文本消息的内容
  
  *  \~english
@@ -79,7 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *recallContent;
 
 /*!
- *  \~chinese
  撤回动作的时间（毫秒）
  
  *  \~english

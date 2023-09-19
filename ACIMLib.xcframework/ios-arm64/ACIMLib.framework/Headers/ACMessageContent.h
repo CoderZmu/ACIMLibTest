@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  消息内容的编解码协议
 
  @discussion 用于标示消息内容的类型，进行消息的编码和解码。
@@ -30,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @required
 
 /*!
- *  \~chinese
  将消息内容序列化，编码成为可传输的json数据
 
  @discussion
@@ -45,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)encode;
 
 /*!
- *  \~chinese
  将json数据的内容反序列化，解码生成可用的消息内容
 
  @param data    消息中的原始json数据
@@ -57,7 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)decodeWithData:(NSDictionary *)data;
 
 /*!
- *  \~chinese
  返回消息的类型名
 
  @return 消息的类型名
@@ -71,7 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 /*!
- *  \~chinese
  返回可搜索的关键内容列表
 
  @return 返回可搜索的关键内容列表
@@ -84,7 +79,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /*!
- *  \~chinese
  消息内容的存储协议
 
  @discussion 用于确定消息内容的存储策略。
@@ -100,7 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
 @required
 
 /*!
- *  \~chinese
  返回消息的存储策略
 
  @return 消息的存储策略
@@ -118,7 +111,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /*!
- *  \~chinese
  消息内容的基类
 
  @discussion 此类为消息实体类 ACMessage 中的消息内容 content 的基类。
@@ -133,7 +125,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACMessageContent : NSObject <ACMessageCoding,ACMessagePersistentCompatible>
 
 /*!
- *  \~chinese
  消息内容中携带的发送者的用户信息
  
  *  \~english
@@ -148,7 +139,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ACMentionedInfo *mentionedInfo;
 
 /*!
- *  \~chinese
  消息的附加信息
  
  *  \~english

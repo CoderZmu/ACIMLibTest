@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  小视频消息的类型名
  
  *  \~english
@@ -21,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define ACSightMessageTypeIdentifier @"RC:SightMsg"
 @class AVAsset;
 /**
- *  \~chinese
  小视频消息类
 
  @discussion 小视频消息类，此消息会进行存储并计入未读消息数。
@@ -38,7 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACSightMessage : ACMediaMessageContent
 
 /**
- *  \~chinese
  视频时长，以秒为单位
  
  *  \~english
@@ -47,7 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger duration;
 
 /**
- *  \~chinese
  文件大小
  
  *  \~english
@@ -56,7 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long long size;
 
 /*!
- *  \~chinese
  缩略图
  
  *  \~english
@@ -65,7 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSData *thumbnailData;
 
 /**
- *  \~chinese
  创建小视频消息的便利构造方法
 
  @param path 视频文件本地路径

@@ -14,7 +14,6 @@
 #pragma mark - ACIMClientReceiveMessageDelegate
 
 /*!
- *  \~chinese
  IMlib消息接收的监听器
 
  @discussion
@@ -32,7 +31,6 @@
 
 @optional
 /*!
- *  \~chinese
  接收消息的回调方法
 
  @param message     当前接收到的消息
@@ -95,7 +93,6 @@
 #pragma mark - ACConnectionStatusChangeDelegate
 
 /*!
- *  \~chinese
  IMLib连接状态的的监听器
 
  @warning 如果您使用IMLib，可以设置并实现此Delegate监听连接状态变化；
@@ -104,7 +101,6 @@
 @protocol ACConnectionStatusChangeDelegate <NSObject>
 
 /*!
- *  \~chinese
  IMLib连接状态的的监听器
 
  @param status  SDK与服务器的连接状态

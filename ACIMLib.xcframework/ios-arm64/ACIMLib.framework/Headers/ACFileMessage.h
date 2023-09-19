@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /*!
- *  \~chinese
  文件消息的类型名
  
  *  \~english
@@ -18,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 #define ACFileMessageTypeIdentifier @"RC:FileMsg"
 /*!
- *  \~chinese
  文件消息类
  
  @discussion 文件消息类，此消息会进行存储并计入未读消息数。
@@ -36,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*!
- *  \~chinese
  文件大小，单位为 Byte
  
  *  \~english
@@ -45,7 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long long size;
 
 /*!
- *  \~chinese
  文件类型
  
  *  \~english
@@ -54,7 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *type;
 
 /*!
- *  \~chinese
  文件的网络地址
  
  *  \~english
@@ -63,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *fileUrl;
 
 /*!
- *  \~chinese
  初始化文件消息
 
  @param localPath 文件的本地路径

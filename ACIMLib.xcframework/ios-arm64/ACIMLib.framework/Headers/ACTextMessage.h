@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /*!
- *  \~chinese
  文本消息的类型名
  
  *  \~english
@@ -19,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define ACTextMessageTypeIdentifier @"RC:TxtMsg"
 
 /*!
- *  \~chinese
  文本消息类
 
  @discussion 文本消息类，此消息会进行存储并计入未读消息数。
@@ -36,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ACTextMessage : ACMessageContent
 
 /*!
- *  \~chinese
  文本消息的内容
  
  *  \~english
@@ -45,7 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *content;
 
 /*!
- *  \~chinese
  初始化文本消息
 
  @param content 文本消息的内容
