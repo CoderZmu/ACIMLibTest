@@ -99,8 +99,17 @@ typedef NS_ENUM(NSInteger, ACConnectErrorCode) {
 };
 
 #pragma mark - ACDBErrorCode
+/*!
+ 初始化数据库状态码
+ */
 typedef NS_ENUM(NSInteger, ACDBErrorCode) {
+    /*!
+     打开数据库成功
+     */
     ACDBOpenSuccess = 0,
+    /*!
+     打开数据库失败
+     */
     ACDBOpenFailed = 33002,
 };
 
@@ -509,7 +518,7 @@ typedef NS_ENUM(NSInteger, ACErrorCode) {
      */
     AC_MEDIA_FILETYPE_INVALID = 34019,
     
-    /*
+    /*!
      发送消息被取消
      */
     AC_MSG_CANCELED = 34020,
