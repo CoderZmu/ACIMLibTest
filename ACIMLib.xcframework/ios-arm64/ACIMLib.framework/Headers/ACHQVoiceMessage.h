@@ -11,9 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  高清语音消息类型名
- 
- *  \~english
- HD voice message type name
  */
 #define ACHQVoiceMessageTypeIdentifier @"RC:HQVCMsg"
 
@@ -23,28 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion 高清语音消息类，此消息会进行存储并计入未读消息数。
  
  @remarks 内容类消息
- 
- *  \~english
- High definition voice message class.
-
- @ discussion HD voice message class, which is stored and counted as unread messages.
-  
-  @ remarks content class message.
  */
 @interface ACHQVoiceMessage : ACMediaMessageContent
 
 /*!
  语音消息的时长，以秒为单位
- 
- *  \~english
- The duration of the voice message, in seconds
  */
 @property (nonatomic, assign) long duration;
-
-/*
- 语音文件类型
- */
-//@property (nonatomic, copy) NSString *type;
 
 /*!
  初始化高清语音消息

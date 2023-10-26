@@ -18,12 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
  @discussion 用于标示消息内容的类型，进行消息的编码和解码。
  所有自定义消息必须实现此协议，否则将无法正常传输和使用。
- 
- *  \~english
- Codec protocol for message content.
-
- @ discussion It is used to identify the type of message content and to encode and decode the message.
-  All custom messages must implement this protocol, otherwise they will not be transmitted and used properly.
  */
 @protocol ACMessageCoding <NSObject>
 @required
@@ -33,12 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
  @discussion
  消息内容通过此方法，将消息中的所有数据，编码成为json数据，返回的json数据将用于网络传输。
- 
- *  \~english
- Serialize the message content and encode it into transportable json data.
-
- @ discussion
- Through this method, the message content encodes all the data in the message into json data, and the returned json data will be used for network transmission.
  */
 - (NSDictionary *)encode;
 
@@ -83,12 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 
  @discussion 用于确定消息内容的存储策略。
  所有自定义消息必须实现此协议，否则将无法正常存储和使用。
- 
- *  \~english
- Storage protocol for message content.
-
- @ discussion It  is used to determine the storage policy for the content of the message.
-  All custom messages must implement this protocol, otherwise they will not be stored and used properly.
  */
 @protocol ACMessagePersistentCompatible <NSObject>
 @required
@@ -99,13 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
  @return 消息的存储策略
 
  @discussion 指明此消息类型在本地是否存储、是否计入未读消息数。
- 
- *  \~english
- Return the storage policy of the message.
-
- @ return Storage policy for messages.
-
- @ discussion It indicates whether this message type is stored locally and counted as unread messages.
  */
 + (ACMessagePersistent)persistentFlag;
 @end
@@ -115,21 +90,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @discussion 此类为消息实体类 ACMessage 中的消息内容 content 的基类。
  所有的消息内容均为此类的子类，包括 SDK 自带的消息（如 ACTextMessage、ACImageMessage 等）
- 
- *  \~english
- The base class of the message content.
-
- @ discussion This class is the base class for the message content in the message entity class RCMessage.
-  All message contents are subclasses of this class, including messages that come with SDK (such as ACTextMessage, ACImageMessage, etc.)
  */
 @interface ACMessageContent : NSObject <ACMessageCoding,ACMessagePersistentCompatible>
 
 /*!
  消息内容中携带的发送者的用户信息
- 
- *  \~english
- User information of the sender carried in the message content.
-
  */
 @property (nonatomic, strong) ACUserInfo *senderUserInfo;
 
@@ -140,9 +105,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  消息的附加信息
- 
- *  \~english
- Additional information for messages.
  */
 @property (nonatomic, copy) NSString *extra;
 

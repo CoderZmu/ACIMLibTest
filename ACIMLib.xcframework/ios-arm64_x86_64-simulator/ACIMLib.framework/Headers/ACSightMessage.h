@@ -13,9 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  小视频消息的类型名
- 
- *  \~english
- The type name of the small video message.
  */
 #define ACSightMessageTypeIdentifier @"RC:SightMsg"
 @class AVAsset;
@@ -25,37 +22,21 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion 小视频消息类，此消息会进行存储并计入未读消息数。
  
  @remarks 内容类消息
- 
- *  \~english
- Small video message class.
-
- @ discussion small video message class, which is stored and counted as unread messages.
-  
-  @ remarks content class message.
  */
 @interface ACSightMessage : ACMediaMessageContent
 
 /**
  视频时长，以秒为单位
- 
- *  \~english
- Video duration (in seconds)
  */
 @property (nonatomic, assign) NSUInteger duration;
 
 /**
  文件大小
- 
- *  \~english
- File size
  */
 @property (nonatomic, assign) long long size;
 
 /*!
  缩略图
- 
- *  \~english
- Thumbnail image
  */
 @property (nonatomic, strong) NSData *thumbnailData;
 

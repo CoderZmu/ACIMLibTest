@@ -19,13 +19,6 @@
  @discussion
  设置IMLib的消息接收监听器请参考ACIMClient的setReceiveMessageDelegate:object:方法。
 
- 
- *  \~english
- Listeners for IMlib message reception.
-
- @ discussion
- To set the message receiving listener for IMLib, please refer to the setReceiveMessageDelegate:object: method of ACIMClient.
-
  */
 @protocol ACIMClientReceiveMessageDelegate <NSObject>
 
@@ -89,7 +82,7 @@
 
 @end
 
-
+ 
 #pragma mark - ACConnectionStatusChangeDelegate
 
 /*!

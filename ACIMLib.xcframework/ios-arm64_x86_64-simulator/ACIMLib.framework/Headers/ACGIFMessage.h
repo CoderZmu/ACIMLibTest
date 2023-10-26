@@ -11,9 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  GIF 消息的类型名
- 
- *  \~english
- Type name of the GIF message
  */
 #define ACGIFMessageTypeIdentifier @"RC:GIFMsg"
 /*!
@@ -21,36 +18,22 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion  GIF 消息类，此消息会进行存储并计入未读消息数。
  
  @remarks 内容类消息
- 
- *  \~english
- GIF message.
- @ discussion GIF message class, which is stored and counted as unread messages.
-  
-  @ remarks content class message.
  */
 @interface ACGIFMessage : ACMediaMessageContent
 
 /*!
  GIF 图的大小，单位字节
- 
- *  \~english
- The size of the GIF graph, in bytes
  */
 @property (nonatomic, assign) long long gifDataSize;
 
 /*!
  GIF 图的宽
- 
- *  \~english
- The width of GIF graphs
  */
 @property (nonatomic, assign) long width;
 
 /*!
  GIF 图的高
- 
- *  \~english
- The height of GIF graph
+
  */
 @property (nonatomic, assign) long height;
 

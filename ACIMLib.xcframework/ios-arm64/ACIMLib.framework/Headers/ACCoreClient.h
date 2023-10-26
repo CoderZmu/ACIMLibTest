@@ -30,11 +30,6 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    远程推送相关设置
 
    @remarks 功能设置
-
- *  \~english
-   Remote push of related settings
-
-   @ remarks Function setting
  */
 @property (nonatomic, strong, readonly) ACPushProfile *pushProfile;
 
@@ -201,7 +196,7 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
    因为 SDK 在前后台切换或者网络出现异常都会自动重连，会保证连接的可靠性。
    所以除非您的 App 逻辑需要登出，否则一般不需要调用此方法进行手动断开。
 
-   isReceivePush 指断开与融云服务器的连接之后，是否还接收远程推送。
+   isReceivePush 指断开与SDK服务器的连接之后，是否还接收远程推送。
  *
    @remarks 连接
 
@@ -215,8 +210,8 @@ typedef void (^ACConnectErrorBlock)(ACConnectErrorCode errorCode);
  因为 SDK 在前后台切换或者网络出现异常都会自动重连，会保证连接的可靠性。
  所以除非您的 App 逻辑需要登出，否则一般不需要调用此方法进行手动断开。
 
- @warning 如果您使用 IMLib，请使用此方法断开与融云服务器的连接；
- 如果您使用 IMKit，请使用 RCIM 中的同名方法断开与融云服务器的连接，而不要使用此方法。
+ @warning 如果您使用 IMLib，请使用此方法断开与SDK服务器的连接；
+ 如果您使用 IMKit，请使用 RCIM 中的同名方法断开与SDK服务器的连接，而不要使用此方法。
 
  [[ACIMClient shared] disconnect:YES] 与 [[ACIMClient shared]
  disconnect] 完全一致；
